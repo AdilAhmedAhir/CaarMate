@@ -133,6 +133,7 @@ CaarMate/
 - [x] Homepage Hero section assembled — `parts/home/hero.html` (Phase 6)
 - [x] Homepage How It Works section assembled — `parts/home/how-it-works.html` (Phase 6)
 - [x] Homepage Trust & Safety section assembled — `parts/home/trust.html` (Phase 6)
+- [x] Homepage Featured Rides section assembled — `parts/home/featured.html` (Phase 6)
 
 ### 🔲 Pending — Phase 2
 
