@@ -155,13 +155,12 @@ class Shortcodes
         // --- Passenger: booking form ---
         $nonceField = wp_nonce_field('cm_book_ride', '_cm_book_nonce', true, false);
         $rideId = absint($postId);
-        $actionUrl = esc_url(admin_url('admin-post.php'));
+        $actionUrl = esc_url(get_permalink($postId));
 
         return '<div class="cm-cta-container">'
             . '<form method="post" action="' . $actionUrl . '" class="cm-booking-form">'
             . $nonceField
-            . '<input type="hidden" name="action" value="cm_book_ride">'
-            . '<input type="hidden" name="ride_id" value="' . esc_attr((string) $rideId) . '">'
+            . '<input type="hidden" name="cm_ride_id" value="' . esc_attr((string) $rideId) . '">'
             . '<button type="submit" class="cm-btn cm-btn-primary">'
             . esc_html__('Book Seat', 'caarmate')
             . '</button>'

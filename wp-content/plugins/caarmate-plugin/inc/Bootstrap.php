@@ -35,5 +35,8 @@ class Bootstrap
 
         $shortcodes = new Shortcodes();
         $shortcodes->register();
+
+        $bookingEngine = new BookingEngine();
+        $bookingEngine->init();
     }
 }

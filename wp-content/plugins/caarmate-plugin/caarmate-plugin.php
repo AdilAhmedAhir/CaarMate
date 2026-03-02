@@ -37,6 +37,7 @@ require_once CAARMATE_PLUGIN_DIR . 'inc/Roles.php';
 require_once CAARMATE_PLUGIN_DIR . 'inc/PostTypes.php';
 require_once CAARMATE_PLUGIN_DIR . 'inc/Meta.php';
 require_once CAARMATE_PLUGIN_DIR . 'inc/Shortcodes.php';
+require_once CAARMATE_PLUGIN_DIR . 'inc/BookingEngine.php';
 
 /**
  * Bootstrap the plugin.

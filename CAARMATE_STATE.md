@@ -19,7 +19,7 @@
 
 ## Current Build Phase
 
-**Phase 3 — Front-End Flows**
+**Phase 4 — Booking Mutation**
 
 ---
 
@@ -67,6 +67,7 @@
 | `_cm_passenger_id` | `integer` | ✅ | Booking user ID |
 | `_cm_seats_booked` | `integer` | ✅ | Number of seats reserved |
 | `_cm_status` | `string` | ✅ | `pending` · `confirmed` · `cancelled` |
+| `_cm_commission_cut` | `number` | ✅ | Platform commission (10% of price) |
 
 ---
 
@@ -96,7 +97,8 @@ CaarMate/
     │   │   ├── Meta.php           (schema, meta boxes, save logic)
     │   │   ├── Roles.php          (cm_driver, cm_passenger)
     │   │   ├── PostTypes.php      (cm_ride, cm_booking)
-    │   │   └── Shortcodes.php     (cm_ride_meta, cm_book_cta)
+    │   │   ├── Shortcodes.php     (cm_ride_meta, cm_book_cta)
+    │   │   └── BookingEngine.php  (transaction logic, seat inventory)
     │   └── assets/                (css/, js/)
     └── themes/caarmate-theme/
         ├── style.css              (theme header)
@@ -125,6 +127,7 @@ CaarMate/
 - [x] Establish global design tokens — `theme.json` (Phase 2)
 - [x] FSE templates (index, archive-cm_ride, single-cm_ride) — `templates/`
 - [x] Shortcode API + data binding in single template — `Shortcodes.php` (Phase 3)
+- [x] Booking mutation engine with transaction gates — `BookingEngine.php` (Phase 4)
 
 ### 🔲 Pending — Phase 2
 
