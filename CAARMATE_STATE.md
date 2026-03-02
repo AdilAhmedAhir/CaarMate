@@ -19,7 +19,7 @@
 
 ## Current Build Phase
 
-**Phase 1 — Scaffolding**
+**Phase 2 — Visual Scaffolding**
 
 ---
 
@@ -101,6 +101,7 @@ CaarMate/
         ├── style.css              (theme header)
         ├── functions.php          (enqueue wrapper)
         ├── index.php              (silent fallback)
+        ├── theme.json             (design tokens — colors, typography, layout)
         ├── parts/                 (block template parts)
         └── templates/             (FSE templates)
 ```
@@ -120,6 +121,7 @@ CaarMate/
 - [x] Register CPTs (`cm_ride`, `cm_booking`) — `PostTypes.php`
 - [x] Create OOP Bootstrap architecture — `Bootstrap.php`
 - [x] Register post meta fields + admin meta boxes — `Meta.php`
+- [x] Establish global design tokens — `theme.json` (Phase 2)
 
 ### 🔲 Pending — Phase 1
 
