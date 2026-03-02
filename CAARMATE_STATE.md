@@ -105,7 +105,9 @@ CaarMate/
         ├── functions.php          (enqueue wrapper)
         ├── index.php              (silent fallback)
         ├── theme.json             (design tokens — colors, typography, layout)
+        ├── assets/images/         (hero-bg.png)
         ├── parts/                 (block template parts)
+        │   └── home/hero.html     (cinematic hero section)
         └── templates/             (FSE templates)
 ```
 
@@ -128,6 +130,7 @@ CaarMate/
 - [x] FSE templates (index, archive-cm_ride, single-cm_ride) — `templates/`
 - [x] Shortcode API + data binding in single template — `Shortcodes.php` (Phase 3)
 - [x] Booking mutation engine with transaction gates — `BookingEngine.php` (Phase 4)
+- [x] Homepage Hero section assembled — `parts/home/hero.html` (Phase 6)
 
 ### 🔲 Pending — Phase 2
 
