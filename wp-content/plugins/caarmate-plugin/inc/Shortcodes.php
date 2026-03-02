@@ -35,6 +35,38 @@ class Shortcodes
     {
         add_shortcode('cm_ride_meta', [$this, 'renderRideMeta']);
         add_shortcode('cm_book_cta', [$this, 'renderBookCta']);
+        add_shortcode('cm_ride_search_widget', [$this, 'renderSearchWidget']);
+    }
+
+    // -------------------------------------------------------------------------
+    //  [cm_ride_search_widget]
+    // -------------------------------------------------------------------------
+
+    /**
+     * Render the ride search form widget.
+     *
+     * Outputs a semantic GET form targeting the /rides/ archive.
+     *
+     * @param array|string $atts Shortcode attributes (unused, reserved).
+     * @return string Escaped HTML form.
+     */
+    public function renderSearchWidget($atts = []): string
+    {
+        $actionUrl = esc_url(home_url('/rides/'));
+
+        return '<form method="get" action="' . $actionUrl . '" class="cm-search-widget">'
+            . '<input type="text" name="departure" class="cm-minimal-input"'
+            . ' placeholder="' . esc_attr__('Leaving from...', 'caarmate') . '" required>'
+            . '<input type="text" name="destination" class="cm-minimal-input"'
+            . ' placeholder="' . esc_attr__('Going to...', 'caarmate') . '" required>'
+            . '<button type="submit" class="cm-btn-stark">'
+            . esc_html__('Search Rides', 'caarmate')
+            . '</button>'
+            . '<p class="cm-driver-link">'
+            . '<a href="' . esc_url(admin_url('post-new.php?post_type=cm_ride')) . '">'
+            . esc_html__('Or offer a seat instead', 'caarmate') . ' &rarr;</a>'
+            . '</p>'
+            . '</form>';
     }
 
     // -------------------------------------------------------------------------

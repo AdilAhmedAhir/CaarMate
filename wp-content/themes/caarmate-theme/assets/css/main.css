@@ -1,20 +1,20 @@
 /* ==========================================================================
-   CaarMate Canvas — Premium UI Styles
+   CaarMate Canvas — Utilitarian Luxury UI
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   CSS Custom Properties (extend theme.json tokens)
+   CSS Custom Properties
    -------------------------------------------------------------------------- */
 :root {
     --cm-primary: #2c7a7b;
     --cm-secondary: #1a202c;
     --cm-bg: #f7fafc;
     --cm-text: #2d3748;
-    --cm-glass-bg: rgba(255, 255, 255, 0.1);
-    --cm-glass-border: rgba(255, 255, 255, 0.2);
-    --cm-glow-shadow: 0 0 20px rgba(44, 122, 123, 0.4);
-    --cm-glow-shadow-hover: 0 0 30px rgba(44, 122, 123, 0.6), 0 4px 15px rgba(44, 122, 123, 0.3);
+    --cm-muted: #4a5568;
+    --cm-border: #e2e8f0;
     --cm-transition: all 0.3s ease;
+    --cm-shadow-card: 0 24px 48px rgba(0, 0, 0, 0.15);
+    --cm-shadow-card-hover: 0 32px 64px rgba(0, 0, 0, 0.18);
 }
 
 /* --------------------------------------------------------------------------
@@ -32,15 +32,13 @@
     }
 }
 
-@keyframes subtlePulse {
-
-    0%,
-    100% {
-        box-shadow: var(--cm-glow-shadow);
+@keyframes fadeIn {
+    from {
+        opacity: 0;
     }
 
-    50% {
-        box-shadow: var(--cm-glow-shadow-hover);
+    to {
+        opacity: 1;
     }
 }
 
@@ -53,23 +51,23 @@
 }
 
 .cm-animate-fade-up.delay-1 {
-    animation-delay: 0.2s;
+    animation-delay: 0.15s;
 }
 
 .cm-animate-fade-up.delay-2 {
-    animation-delay: 0.4s;
+    animation-delay: 0.3s;
 }
 
 .cm-animate-fade-up.delay-3 {
-    animation-delay: 0.6s;
+    animation-delay: 0.5s;
 }
 
 .cm-animate-fade-up.delay-4 {
-    animation-delay: 0.8s;
+    animation-delay: 0.7s;
 }
 
 /* --------------------------------------------------------------------------
-   Hero Cinematic Overlay
+   Hero Overlay — Dark & Stark
    -------------------------------------------------------------------------- */
 .cm-hero-overlay {
     position: relative;
@@ -77,21 +75,19 @@
 
 .cm-hero-overlay>.wp-block-cover__background {
     background: linear-gradient(180deg,
-            rgba(26, 32, 44, 0.92) 0%,
-            rgba(44, 122, 123, 0.45) 40%,
-            rgba(44, 122, 123, 0.45) 60%,
-            rgba(26, 32, 44, 0.92) 100%) !important;
+            rgba(15, 23, 42, 0.75) 0%,
+            rgba(15, 23, 42, 0.55) 50%,
+            rgba(15, 23, 42, 0.80) 100%) !important;
     opacity: 1 !important;
 }
 
-/* Subtle vignette radial on top */
 .cm-hero-overlay::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at center,
-            transparent 50%,
-            rgba(26, 32, 44, 0.4) 100%);
+    background: radial-gradient(ellipse at 30% 50%,
+            transparent 40%,
+            rgba(15, 23, 42, 0.35) 100%);
     pointer-events: none;
     z-index: 1;
 }
@@ -101,84 +97,120 @@
     z-index: 2;
 }
 
-/* Hero heading text shadow for depth */
-.cm-hero-heading {
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3), 0 1px 6px rgba(0, 0, 0, 0.2);
-    letter-spacing: -0.02em;
+/* --------------------------------------------------------------------------
+   Hero Typography — Uber Style
+   -------------------------------------------------------------------------- */
+.cm-uber-heading {
+    font-weight: 800 !important;
+    letter-spacing: -0.03em;
+    line-height: 1.05 !important;
+    text-shadow: none;
 }
 
-/* Hero subtitle */
-.cm-hero-subtitle {
-    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
+.cm-uber-subtitle {
+    opacity: 0.85;
+    line-height: 1.65;
+    max-width: 480px;
+}
+
+/* --------------------------------------------------------------------------
+   Action Card (Search Widget Container)
+   -------------------------------------------------------------------------- */
+.cm-action-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 36px 32px !important;
+    box-shadow: var(--cm-shadow-card);
+    max-width: 450px;
+    width: 100%;
     margin-left: auto;
-    margin-right: auto;
+}
+
+.cm-action-card:hover {
+    box-shadow: var(--cm-shadow-card-hover);
 }
 
 /* --------------------------------------------------------------------------
-   Glassmorphism Button
+   Search Widget (inside action card)
    -------------------------------------------------------------------------- */
-.cm-btn-glass .wp-block-button__link,
-a.cm-btn-glass {
-    background: var(--cm-glass-bg) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--cm-glass-border) !important;
-    color: #fff !important;
-    transition: var(--cm-transition);
+.cm-search-widget {
+    display: flex;
+    flex-direction: column;
+}
+
+.cm-minimal-input {
+    width: 100%;
+    padding: 14px 0;
+    border: none;
+    border-bottom: 2px solid var(--cm-border);
+    font-size: 1.05rem;
+    font-family: inherit;
+    margin-bottom: 20px;
+    transition: border-color 0.2s ease;
+    background: transparent;
+    outline: none;
+    color: var(--cm-secondary);
+}
+
+.cm-minimal-input::placeholder {
+    color: #a0aec0;
+    font-weight: 400;
+}
+
+.cm-minimal-input:focus {
+    border-bottom-color: var(--cm-primary);
+}
+
+/* --------------------------------------------------------------------------
+   Stark Button (Primary Submit)
+   -------------------------------------------------------------------------- */
+.cm-btn-stark {
+    display: block;
+    width: 100%;
+    background: var(--cm-secondary);
+    color: #ffffff;
+    padding: 16px;
+    border-radius: 8px;
     font-weight: 600;
-    letter-spacing: 0.01em;
+    font-size: 1.05rem;
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+    transition: var(--cm-transition);
+    text-align: center;
+    margin-top: 4px;
 }
 
-.cm-btn-glass .wp-block-button__link:hover,
-a.cm-btn-glass:hover {
-    background: rgba(255, 255, 255, 0.2) !important;
-    border-color: rgba(255, 255, 255, 0.35) !important;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+.cm-btn-stark:hover {
+    background: var(--cm-primary);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(44, 122, 123, 0.3);
 }
 
-.cm-btn-glass .wp-block-button__link:active,
-a.cm-btn-glass:active {
+.cm-btn-stark:active {
     transform: translateY(0);
 }
 
 /* --------------------------------------------------------------------------
-   Glow Button (Primary CTA)
+   Driver Link (below search)
    -------------------------------------------------------------------------- */
-.cm-btn-glow .wp-block-button__link,
-a.cm-btn-glow {
-    background: #fff !important;
-    color: var(--cm-primary) !important;
-    border: none !important;
-    font-weight: 700;
-    letter-spacing: 0.01em;
-    box-shadow: var(--cm-glow-shadow);
+.cm-driver-link {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.cm-driver-link a {
+    color: var(--cm-muted);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
     transition: var(--cm-transition);
+    font-weight: 500;
 }
 
-.cm-btn-glow .wp-block-button__link:hover,
-a.cm-btn-glow:hover {
-    box-shadow: var(--cm-glow-shadow-hover);
-    transform: translateY(-2px);
-    background: #fff !important;
-}
-
-.cm-btn-glow .wp-block-button__link:active,
-a.cm-btn-glow:active {
-    transform: translateY(0);
-    box-shadow: var(--cm-glow-shadow);
-}
-
-/* Subtle idle pulse on the primary CTA */
-@media (prefers-reduced-motion: no-preference) {
-    .cm-btn-glow .wp-block-button__link {
-        animation: subtlePulse 3s ease-in-out infinite;
-    }
-
-    .cm-btn-glow .wp-block-button__link:hover {
-        animation: none;
-    }
+.cm-driver-link a:hover {
+    color: var(--cm-primary);
+    border-bottom-color: var(--cm-primary);
 }
 
 /* --------------------------------------------------------------------------
@@ -194,14 +226,20 @@ a.cm-btn-glow:active {
 }
 
 /* --------------------------------------------------------------------------
-   Responsive Adjustments
+   Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
-    .cm-hero-heading {
-        letter-spacing: -0.01em;
+    .cm-uber-heading {
+        letter-spacing: -0.02em;
     }
 
-    .cm-hero-subtitle {
+    .cm-uber-subtitle {
         max-width: 100%;
+    }
+
+    .cm-action-card {
+        max-width: 100%;
+        margin-left: 0;
+        padding: 28px 24px !important;
     }
 }

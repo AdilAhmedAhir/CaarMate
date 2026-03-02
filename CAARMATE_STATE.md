@@ -135,7 +135,7 @@ CaarMate/
 - [x] Homepage Trust & Safety section assembled — `parts/home/trust.html` (Phase 6)
 - [x] Homepage Featured Rides section assembled — `parts/home/featured.html` (Phase 6)
 - [x] Premium CSS pipeline established — `assets/css/main.css` via `functions.php` enqueue
-- [x] Hero section upgraded — glassmorphism, cinematic gradient, fadeUp animations
+- [x] Hero rebuilt to Tier-1 functional UI — search widget, Uber-style layout, stark CSS
 
 ### 🔲 Pending — Phase 2
 
