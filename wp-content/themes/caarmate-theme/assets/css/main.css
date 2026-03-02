@@ -1,0 +1,207 @@
+/* ==========================================================================
+   CaarMate Canvas — Premium UI Styles
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CSS Custom Properties (extend theme.json tokens)
+   -------------------------------------------------------------------------- */
+:root {
+    --cm-primary: #2c7a7b;
+    --cm-secondary: #1a202c;
+    --cm-bg: #f7fafc;
+    --cm-text: #2d3748;
+    --cm-glass-bg: rgba(255, 255, 255, 0.1);
+    --cm-glass-border: rgba(255, 255, 255, 0.2);
+    --cm-glow-shadow: 0 0 20px rgba(44, 122, 123, 0.4);
+    --cm-glow-shadow-hover: 0 0 30px rgba(44, 122, 123, 0.6), 0 4px 15px rgba(44, 122, 123, 0.3);
+    --cm-transition: all 0.3s ease;
+}
+
+/* --------------------------------------------------------------------------
+   Keyframe Animations
+   -------------------------------------------------------------------------- */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes subtlePulse {
+
+    0%,
+    100% {
+        box-shadow: var(--cm-glow-shadow);
+    }
+
+    50% {
+        box-shadow: var(--cm-glow-shadow-hover);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Fade Up Utility
+   -------------------------------------------------------------------------- */
+.cm-animate-fade-up {
+    opacity: 0;
+    animation: fadeUp 0.7s ease-out forwards;
+}
+
+.cm-animate-fade-up.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.cm-animate-fade-up.delay-2 {
+    animation-delay: 0.4s;
+}
+
+.cm-animate-fade-up.delay-3 {
+    animation-delay: 0.6s;
+}
+
+.cm-animate-fade-up.delay-4 {
+    animation-delay: 0.8s;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Cinematic Overlay
+   -------------------------------------------------------------------------- */
+.cm-hero-overlay {
+    position: relative;
+}
+
+.cm-hero-overlay>.wp-block-cover__background {
+    background: linear-gradient(180deg,
+            rgba(26, 32, 44, 0.92) 0%,
+            rgba(44, 122, 123, 0.45) 40%,
+            rgba(44, 122, 123, 0.45) 60%,
+            rgba(26, 32, 44, 0.92) 100%) !important;
+    opacity: 1 !important;
+}
+
+/* Subtle vignette radial on top */
+.cm-hero-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center,
+            transparent 50%,
+            rgba(26, 32, 44, 0.4) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.cm-hero-overlay>.wp-block-cover__inner-container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Hero heading text shadow for depth */
+.cm-hero-heading {
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3), 0 1px 6px rgba(0, 0, 0, 0.2);
+    letter-spacing: -0.02em;
+}
+
+/* Hero subtitle */
+.cm-hero-subtitle {
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Glassmorphism Button
+   -------------------------------------------------------------------------- */
+.cm-btn-glass .wp-block-button__link,
+a.cm-btn-glass {
+    background: var(--cm-glass-bg) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--cm-glass-border) !important;
+    color: #fff !important;
+    transition: var(--cm-transition);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.cm-btn-glass .wp-block-button__link:hover,
+a.cm-btn-glass:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.35) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.cm-btn-glass .wp-block-button__link:active,
+a.cm-btn-glass:active {
+    transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   Glow Button (Primary CTA)
+   -------------------------------------------------------------------------- */
+.cm-btn-glow .wp-block-button__link,
+a.cm-btn-glow {
+    background: #fff !important;
+    color: var(--cm-primary) !important;
+    border: none !important;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    box-shadow: var(--cm-glow-shadow);
+    transition: var(--cm-transition);
+}
+
+.cm-btn-glow .wp-block-button__link:hover,
+a.cm-btn-glow:hover {
+    box-shadow: var(--cm-glow-shadow-hover);
+    transform: translateY(-2px);
+    background: #fff !important;
+}
+
+.cm-btn-glow .wp-block-button__link:active,
+a.cm-btn-glow:active {
+    transform: translateY(0);
+    box-shadow: var(--cm-glow-shadow);
+}
+
+/* Subtle idle pulse on the primary CTA */
+@media (prefers-reduced-motion: no-preference) {
+    .cm-btn-glow .wp-block-button__link {
+        animation: subtlePulse 3s ease-in-out infinite;
+    }
+
+    .cm-btn-glow .wp-block-button__link:hover {
+        animation: none;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Card Hover Lift (reusable)
+   -------------------------------------------------------------------------- */
+.cm-card-lift {
+    transition: var(--cm-transition);
+}
+
+.cm-card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .cm-hero-heading {
+        letter-spacing: -0.01em;
+    }
+
+    .cm-hero-subtitle {
+        max-width: 100%;
+    }
+}

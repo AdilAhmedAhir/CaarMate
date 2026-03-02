@@ -12,7 +12,7 @@ declare(strict_types=1);
  */
 
 // Prevent direct access.
-if (! defined('ABSPATH')) {
+if (!defined('ABSPATH')) {
     exit;
 }
 
@@ -27,6 +27,13 @@ function caarmate_canvas_enqueue_styles(): void
         'caarmate-canvas-style',
         get_stylesheet_uri(),
         [],
+        wp_get_theme()->get('Version')
+    );
+
+    wp_enqueue_style(
+        'caarmate-canvas-main',
+        get_template_directory_uri() . '/assets/css/main.css',
+        ['caarmate-canvas-style'],
         wp_get_theme()->get('Version')
     );
 }

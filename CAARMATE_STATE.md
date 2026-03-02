@@ -134,6 +134,8 @@ CaarMate/
 - [x] Homepage How It Works section assembled — `parts/home/how-it-works.html` (Phase 6)
 - [x] Homepage Trust & Safety section assembled — `parts/home/trust.html` (Phase 6)
 - [x] Homepage Featured Rides section assembled — `parts/home/featured.html` (Phase 6)
+- [x] Premium CSS pipeline established — `assets/css/main.css` via `functions.php` enqueue
+- [x] Hero section upgraded — glassmorphism, cinematic gradient, fadeUp animations
 
 ### 🔲 Pending — Phase 2
 
