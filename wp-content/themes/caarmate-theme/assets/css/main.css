@@ -3,6 +3,11 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
+   Google Font — Inter (Variable Weight)
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* --------------------------------------------------------------------------
    CSS Custom Properties
    -------------------------------------------------------------------------- */
 :root {
@@ -10,11 +15,22 @@
     --cm-secondary: #1a202c;
     --cm-bg: #f7fafc;
     --cm-text: #2d3748;
-    --cm-muted: #4a5568;
+    --cm-muted: #718096;
     --cm-border: #e2e8f0;
-    --cm-transition: all 0.3s ease;
-    --cm-shadow-card: 0 24px 48px rgba(0, 0, 0, 0.15);
-    --cm-shadow-card-hover: 0 32px 64px rgba(0, 0, 0, 0.18);
+    --cm-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --cm-shadow-card: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --cm-shadow-card-hover: 0 30px 60px -15px rgba(0, 0, 0, 0.3);
+    --cm-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   Global Base Reset
+   -------------------------------------------------------------------------- */
+body,
+.wp-site-blocks {
+    font-family: var(--cm-font);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* --------------------------------------------------------------------------
@@ -23,7 +39,7 @@
 @keyframes fadeUp {
     from {
         opacity: 0;
-        transform: translateY(24px);
+        transform: translateY(30px);
     }
 
     to {
@@ -47,165 +63,200 @@
    -------------------------------------------------------------------------- */
 .cm-animate-fade-up {
     opacity: 0;
-    animation: fadeUp 0.7s ease-out forwards;
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .cm-animate-fade-up.delay-1 {
-    animation-delay: 0.15s;
+    animation-delay: 0.2s;
 }
 
 .cm-animate-fade-up.delay-2 {
-    animation-delay: 0.3s;
+    animation-delay: 0.4s;
 }
 
 .cm-animate-fade-up.delay-3 {
-    animation-delay: 0.5s;
+    animation-delay: 0.6s;
 }
 
 .cm-animate-fade-up.delay-4 {
-    animation-delay: 0.7s;
+    animation-delay: 0.8s;
 }
 
 /* --------------------------------------------------------------------------
-   Hero Overlay — Dark & Stark
+   Hero Overlay — Deep Dark Cinematic
    -------------------------------------------------------------------------- */
 .cm-hero-overlay {
     position: relative;
 }
 
-.cm-hero-overlay>.wp-block-cover__background {
-    background: linear-gradient(180deg,
-            rgba(15, 23, 42, 0.75) 0%,
-            rgba(15, 23, 42, 0.55) 50%,
-            rgba(15, 23, 42, 0.80) 100%) !important;
+/* Force override WP cover background */
+.wp-block-cover.cm-hero-overlay>.wp-block-cover__background {
+    background: linear-gradient(160deg,
+            rgba(10, 15, 28, 0.88) 0%,
+            rgba(10, 15, 28, 0.65) 45%,
+            rgba(10, 15, 28, 0.75) 100%) !important;
     opacity: 1 !important;
 }
 
-.cm-hero-overlay::after {
+/* Radial vignette for depth */
+.wp-block-cover.cm-hero-overlay::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 30% 50%,
-            transparent 40%,
-            rgba(15, 23, 42, 0.35) 100%);
+    background: radial-gradient(ellipse at 25% 50%,
+            transparent 30%,
+            rgba(10, 15, 28, 0.4) 100%);
     pointer-events: none;
     z-index: 1;
 }
 
-.cm-hero-overlay>.wp-block-cover__inner-container {
+.wp-block-cover.cm-hero-overlay>.wp-block-cover__inner-container {
     position: relative;
     z-index: 2;
 }
 
 /* --------------------------------------------------------------------------
-   Hero Typography — Uber Style
+   Hero Typography — Uber/Airbnb Style
    -------------------------------------------------------------------------- */
-.cm-uber-heading {
-    font-weight: 800 !important;
-    letter-spacing: -0.03em;
-    line-height: 1.05 !important;
-    text-shadow: none;
+.cm-uber-heading,
+h1.cm-uber-heading,
+.wp-block-heading.cm-uber-heading {
+    font-family: var(--cm-font) !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.04em !important;
+    line-height: 1.0 !important;
+    color: #ffffff !important;
+    text-shadow: none !important;
 }
 
-.cm-uber-subtitle {
-    opacity: 0.85;
+.cm-uber-subtitle,
+p.cm-uber-subtitle {
+    font-family: var(--cm-font) !important;
+    color: rgba(255, 255, 255, 0.75) !important;
+    font-weight: 400;
     line-height: 1.65;
-    max-width: 480px;
+    max-width: 460px;
+    font-size: clamp(1rem, 1.6vw, 1.2rem) !important;
 }
 
 /* --------------------------------------------------------------------------
-   Action Card (Search Widget Container)
+   Action Card — Floating White Card (HIGH SPECIFICITY)
    -------------------------------------------------------------------------- */
-.cm-action-card {
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 36px 32px !important;
-    box-shadow: var(--cm-shadow-card);
-    max-width: 450px;
+.wp-block-group.cm-action-card,
+div.cm-action-card {
+    background: #ffffff !important;
+    border-radius: 20px !important;
+    padding: 40px 36px !important;
+    box-shadow: var(--cm-shadow-card) !important;
+    max-width: 420px;
     width: 100%;
     margin-left: auto;
+    transition: var(--cm-transition);
+    border: none !important;
 }
 
-.cm-action-card:hover {
-    box-shadow: var(--cm-shadow-card-hover);
+.wp-block-group.cm-action-card:hover,
+div.cm-action-card:hover {
+    box-shadow: var(--cm-shadow-card-hover) !important;
+    transform: translateY(-2px);
 }
 
 /* --------------------------------------------------------------------------
-   Search Widget (inside action card)
+   Search Widget Form
    -------------------------------------------------------------------------- */
 .cm-search-widget {
     display: flex;
     flex-direction: column;
+    gap: 0;
 }
 
-.cm-minimal-input {
-    width: 100%;
-    padding: 14px 0;
-    border: none;
-    border-bottom: 2px solid var(--cm-border);
-    font-size: 1.05rem;
-    font-family: inherit;
-    margin-bottom: 20px;
-    transition: border-color 0.2s ease;
-    background: transparent;
-    outline: none;
-    color: var(--cm-secondary);
+/* Inputs — Minimal Underline Style */
+input.cm-minimal-input,
+.cm-search-widget input[type="text"],
+.cm-search-widget .cm-minimal-input {
+    width: 100% !important;
+    padding: 16px 2px !important;
+    border: none !important;
+    border-bottom: 2px solid var(--cm-border) !important;
+    border-radius: 0 !important;
+    font-size: 1.05rem !important;
+    font-family: var(--cm-font) !important;
+    font-weight: 500;
+    margin-bottom: 16px;
+    transition: border-color 0.25s ease;
+    background: transparent !important;
+    outline: none !important;
+    color: var(--cm-secondary) !important;
+    box-shadow: none !important;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
-.cm-minimal-input::placeholder {
+input.cm-minimal-input::placeholder,
+.cm-search-widget input::placeholder {
     color: #a0aec0;
     font-weight: 400;
 }
 
-.cm-minimal-input:focus {
-    border-bottom-color: var(--cm-primary);
+input.cm-minimal-input:focus,
+.cm-search-widget input[type="text"]:focus {
+    border-bottom-color: var(--cm-primary) !important;
 }
 
 /* --------------------------------------------------------------------------
-   Stark Button (Primary Submit)
+   Stark Button — Dark Monolith CTA
    -------------------------------------------------------------------------- */
+button.cm-btn-stark,
+.cm-search-widget button,
 .cm-btn-stark {
-    display: block;
-    width: 100%;
-    background: var(--cm-secondary);
-    color: #ffffff;
-    padding: 16px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 1.05rem;
-    font-family: inherit;
-    border: none;
+    display: block !important;
+    width: 100% !important;
+    background: var(--cm-secondary) !important;
+    color: #ffffff !important;
+    padding: 17px 24px !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    font-size: 1.05rem !important;
+    font-family: var(--cm-font) !important;
+    border: none !important;
     cursor: pointer;
     transition: var(--cm-transition);
     text-align: center;
-    margin-top: 4px;
+    margin-top: 8px;
+    letter-spacing: 0.01em;
+    box-shadow: 0 4px 14px rgba(26, 32, 44, 0.15);
 }
 
-.cm-btn-stark:hover {
-    background: var(--cm-primary);
+button.cm-btn-stark:hover,
+.cm-search-widget button:hover {
+    background: var(--cm-primary) !important;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(44, 122, 123, 0.3);
+    box-shadow: 0 6px 20px rgba(44, 122, 123, 0.3);
 }
 
-.cm-btn-stark:active {
+button.cm-btn-stark:active,
+.cm-search-widget button:active {
     transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(44, 122, 123, 0.2);
 }
 
 /* --------------------------------------------------------------------------
-   Driver Link (below search)
+   Driver Link — Subtle Secondary CTA
    -------------------------------------------------------------------------- */
 .cm-driver-link {
-    margin-top: 16px;
+    margin-top: 20px !important;
+    margin-bottom: 0 !important;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
 }
 
 .cm-driver-link a {
     color: var(--cm-muted);
     text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: var(--cm-transition);
     font-weight: 500;
+    border-bottom: 1px dashed transparent;
+    transition: var(--cm-transition);
+    letter-spacing: 0.01em;
 }
 
 .cm-driver-link a:hover {
@@ -228,18 +279,27 @@
 /* --------------------------------------------------------------------------
    Responsive
    -------------------------------------------------------------------------- */
-@media (max-width: 768px) {
-    .cm-uber-heading {
-        letter-spacing: -0.02em;
+@media (max-width: 781px) {
+
+    .cm-uber-heading,
+    h1.cm-uber-heading {
+        letter-spacing: -0.03em !important;
+        text-align: center !important;
     }
 
-    .cm-uber-subtitle {
+    .cm-uber-subtitle,
+    p.cm-uber-subtitle {
         max-width: 100%;
+        text-align: center !important;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .cm-action-card {
+    .wp-block-group.cm-action-card,
+    div.cm-action-card {
         max-width: 100%;
         margin-left: 0;
-        padding: 28px 24px !important;
+        margin-top: 32px;
+        padding: 32px 28px !important;
     }
 }
