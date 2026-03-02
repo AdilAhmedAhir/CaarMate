@@ -35,6 +35,7 @@ define('CAARMATE_PLUGIN_URL', plugin_dir_url(__FILE__));
 require_once CAARMATE_PLUGIN_DIR . 'inc/Bootstrap.php';
 require_once CAARMATE_PLUGIN_DIR . 'inc/Roles.php';
 require_once CAARMATE_PLUGIN_DIR . 'inc/PostTypes.php';
+require_once CAARMATE_PLUGIN_DIR . 'inc/Meta.php';
 
 /**
  * Bootstrap the plugin.

@@ -29,5 +29,8 @@ class Bootstrap
         if (is_admin()) {
             $roles->register();
         }
+
+        $meta = new Meta();
+        $meta->register();
     }
 }

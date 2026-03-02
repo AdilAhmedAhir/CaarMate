@@ -50,23 +50,23 @@
 
 ### Post Meta — `cm_ride`
 
-| Meta Key | Type | Description |
-|---|---|---|
-| `_cm_departure` | `string` | Departure city / address |
-| `_cm_destination` | `string` | Destination city / address |
-| `_cm_seats` | `int` | Available seats (1–8) |
-| `_cm_price` | `float` | Price per seat (currency TBD) |
-| `_cm_date` | `string` | Ride date (`Y-m-d`) |
-| `_cm_time` | `string` | Departure time (`H:i`) |
+| Meta Key | Type | REST | Description |
+|---|---|---|---|
+| `_cm_departure` | `string` | ✅ | Departure city / address |
+| `_cm_destination` | `string` | ✅ | Destination city / address |
+| `_cm_datetime` | `string` | ✅ | Ride date & time (ISO `datetime-local`) |
+| `_cm_total_seats` | `integer` | ✅ | Total seats (1–8) |
+| `_cm_available_seats` | `integer` | ✅ | Remaining seats (auto-defaults to total) |
+| `_cm_price` | `number` | ✅ | Price per seat |
 
 ### Post Meta — `cm_booking`
 
-| Meta Key | Type | Description |
-|---|---|---|
-| `_cm_ride_id` | `int` | Associated `cm_ride` post ID |
-| `_cm_passenger_id` | `int` | Booking user ID |
-| `_cm_seats_booked` | `int` | Number of seats reserved |
-| `_cm_status` | `string` | `pending` · `confirmed` · `cancelled` |
+| Meta Key | Type | REST | Description |
+|---|---|---|---|
+| `_cm_ride_id` | `integer` | ✅ | Associated `cm_ride` post ID |
+| `_cm_passenger_id` | `integer` | ✅ | Booking user ID |
+| `_cm_seats_booked` | `integer` | ✅ | Number of seats reserved |
+| `_cm_status` | `string` | ✅ | `pending` · `confirmed` · `cancelled` |
 
 ---
 
@@ -93,6 +93,7 @@ CaarMate/
     │   ├── caarmate-plugin.php    (bootstrap, namespace CaarMate\Core)
     │   ├── inc/
     │   │   ├── Bootstrap.php      (wires subsystems into WP hooks)
+    │   │   ├── Meta.php           (schema, meta boxes, save logic)
     │   │   ├── Roles.php          (cm_driver, cm_passenger)
     │   │   └── PostTypes.php      (cm_ride, cm_booking)
     │   └── assets/                (css/, js/)
@@ -118,10 +119,10 @@ CaarMate/
 - [x] Register custom roles (`cm_driver`, `cm_passenger`) — `Roles.php`
 - [x] Register CPTs (`cm_ride`, `cm_booking`) — `PostTypes.php`
 - [x] Create OOP Bootstrap architecture — `Bootstrap.php`
+- [x] Register post meta fields + admin meta boxes — `Meta.php`
 
 ### 🔲 Pending — Phase 1
 
-- [ ] Register post meta fields
 - [ ] Add basic FSE templates (index, single-ride, archive-rides)
 
 ### 🔲 Backlog — Phase 2+
