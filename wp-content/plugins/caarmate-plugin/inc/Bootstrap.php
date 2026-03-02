@@ -32,5 +32,8 @@ class Bootstrap
 
         $meta = new Meta();
         $meta->register();
+
+        $shortcodes = new Shortcodes();
+        $shortcodes->register();
     }
 }

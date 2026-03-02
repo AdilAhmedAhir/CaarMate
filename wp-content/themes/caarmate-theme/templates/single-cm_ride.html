@@ -28,9 +28,9 @@
                         <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"}},"textColor":"text"} -->
                         <p class="has-text-color has-text-text-color"><strong>Departure</strong></p>
                         <!-- /wp:paragraph -->
-                        <!-- wp:paragraph {"placeholder":"Populated by plugin","textColor":"secondary"} -->
-                        <p class="has-text-color has-secondary-color">[cm_departure]</p>
-                        <!-- /wp:paragraph -->
+                        <!-- wp:shortcode -->
+                        [cm_ride_meta key="departure"]
+                        <!-- /wp:shortcode -->
                     </div>
                     <!-- /wp:group -->
 
@@ -39,9 +39,9 @@
                         <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"}},"textColor":"text"} -->
                         <p class="has-text-color has-text-text-color"><strong>Destination</strong></p>
                         <!-- /wp:paragraph -->
-                        <!-- wp:paragraph {"placeholder":"Populated by plugin","textColor":"secondary"} -->
-                        <p class="has-text-color has-secondary-color">[cm_destination]</p>
-                        <!-- /wp:paragraph -->
+                        <!-- wp:shortcode -->
+                        [cm_ride_meta key="destination"]
+                        <!-- /wp:shortcode -->
                     </div>
                     <!-- /wp:group -->
 
@@ -50,9 +50,9 @@
                         <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"}},"textColor":"text"} -->
                         <p class="has-text-color has-text-text-color"><strong>Date &amp; Time</strong></p>
                         <!-- /wp:paragraph -->
-                        <!-- wp:paragraph {"placeholder":"Populated by plugin","textColor":"secondary"} -->
-                        <p class="has-text-color has-secondary-color">[cm_datetime]</p>
-                        <!-- /wp:paragraph -->
+                        <!-- wp:shortcode -->
+                        [cm_ride_meta key="datetime"]
+                        <!-- /wp:shortcode -->
                     </div>
                     <!-- /wp:group -->
 
@@ -61,9 +61,9 @@
                         <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"}},"textColor":"text"} -->
                         <p class="has-text-color has-text-text-color"><strong>Available Seats</strong></p>
                         <!-- /wp:paragraph -->
-                        <!-- wp:paragraph {"placeholder":"Populated by plugin","textColor":"secondary"} -->
-                        <p class="has-text-color has-secondary-color">[cm_available_seats] / [cm_total_seats]</p>
-                        <!-- /wp:paragraph -->
+                        <!-- wp:shortcode -->
+                        [cm_ride_meta key="available_seats"] / [cm_ride_meta key="total_seats"]
+                        <!-- /wp:shortcode -->
                     </div>
                     <!-- /wp:group -->
 
@@ -86,30 +86,18 @@
                 <h4 class="wp-block-heading has-text-color has-text-text-color">Price per Seat</h4>
                 <!-- /wp:heading -->
 
-                <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|xx-large","fontWeight":"700"}},"textColor":"primary"} -->
-                <p class="has-text-color has-primary-color">[cm_price]</p>
-                <!-- /wp:paragraph -->
+                <!-- wp:shortcode -->
+                [cm_ride_meta key="price"]
+                <!-- /wp:shortcode -->
 
                 <!-- wp:separator {"backgroundColor":"primary","style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
                 <hr
                     class="wp-block-separator has-text-color has-primary-color has-alpha-channel-opacity has-primary-background-color has-background" />
                 <!-- /wp:separator -->
 
-                <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
-                <div class="wp-block-buttons">
-                    <!-- wp:button {"backgroundColor":"primary","textColor":"background","width":100,"style":{"border":{"radius":"8px"},"typography":{"fontSize":"var:preset|font-size|large","fontWeight":"600"}}} -->
-                    <div class="wp-block-button has-custom-width wp-block-button__width-100">
-                        <a class="wp-block-button__link has-background-color has-primary-background-color has-text-color has-background wp-element-button"
-                            style="border-radius:8px">Book Seat</a>
-                    </div>
-                    <!-- /wp:button -->
-                </div>
-                <!-- /wp:buttons -->
-
-                <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|small"}},"textColor":"text"} -->
-                <p class="has-text-align-center has-text-color has-text-text-color">Instant confirmation · No hidden
-                    fees</p>
-                <!-- /wp:paragraph -->
+                <!-- wp:shortcode -->
+                [cm_book_cta]
+                <!-- /wp:shortcode -->
 
             </div>
             <!-- /wp:group -->
