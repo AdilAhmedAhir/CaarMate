@@ -34,7 +34,7 @@ function caarmate_canvas_enqueue_styles(): void
         'caarmate-canvas-main',
         get_template_directory_uri() . '/assets/css/main.css',
         ['caarmate-canvas-style'],
-        wp_get_theme()->get('Version')
+        (string) filemtime(get_template_directory() . '/assets/css/main.css')
     );
 }
 
