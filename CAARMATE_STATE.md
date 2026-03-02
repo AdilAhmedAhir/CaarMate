@@ -122,10 +122,9 @@ CaarMate/
 - [x] Create OOP Bootstrap architecture — `Bootstrap.php`
 - [x] Register post meta fields + admin meta boxes — `Meta.php`
 - [x] Establish global design tokens — `theme.json` (Phase 2)
+- [x] FSE templates (index, archive-cm_ride, single-cm_ride) — `templates/`
 
-### 🔲 Pending — Phase 1
-
-- [ ] Add basic FSE templates (index, single-ride, archive-rides)
+### 🔲 Pending — Phase 2
 
 ### 🔲 Backlog — Phase 2+
 

@@ -1,0 +1,50 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+<div class="wp-block-group">
+
+    <!-- wp:heading {"level":1,"style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|30"}}}} -->
+    <h1 class="wp-block-heading">Available Rides</h1>
+    <!-- /wp:heading -->
+
+    <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"}},"textColor":"text"} -->
+    <p class="has-text-color has-text-text-color">Browse open trips and book your seat.</p>
+    <!-- /wp:paragraph -->
+
+    <!-- wp:query {"queryId":1,"query":{"postType":"cm_ride","perPage":12,"order":"desc","orderBy":"date"},"layout":{"type":"default"}} -->
+    <div class="wp-block-query">
+
+        <!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+
+        <!-- wp:group {"style":{"border":{"width":"1px","color":"var:preset|color|primary","radius":"8px"},"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"backgroundColor":"background"} -->
+        <div class="wp-block-group has-background-background-color has-background">
+
+            <!-- wp:post-title {"level":3,"isLink":true,"style":{"typography":{"fontSize":"var:preset|font-size|large"}},"textColor":"secondary"} /-->
+
+            <!-- wp:post-excerpt {"moreText":"View Trip →","excerptLength":20} /-->
+
+        </div>
+        <!-- /wp:group -->
+
+        <!-- /wp:post-template -->
+
+        <!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
+        <!-- wp:query-pagination-previous /-->
+        <!-- wp:query-pagination-numbers /-->
+        <!-- wp:query-pagination-next /-->
+        <!-- /wp:query-pagination -->
+
+        <!-- wp:query-no-results -->
+        <!-- wp:paragraph {"align":"center","textColor":"text"} -->
+        <p class="has-text-align-center has-text-color has-text-text-color">No rides available right now. Check back
+            soon!</p>
+        <!-- /wp:paragraph -->
+        <!-- /wp:query-no-results -->
+
+    </div>
+    <!-- /wp:query -->
+
+</div>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
