@@ -131,6 +131,7 @@ CaarMate/
 - [x] Shortcode API + data binding in single template — `Shortcodes.php` (Phase 3)
 - [x] Booking mutation engine with transaction gates — `BookingEngine.php` (Phase 4)
 - [x] Homepage Hero section assembled — `parts/home/hero.html` (Phase 6)
+- [x] Homepage How It Works section assembled — `parts/home/how-it-works.html` (Phase 6)
 
 ### 🔲 Pending — Phase 2
 
