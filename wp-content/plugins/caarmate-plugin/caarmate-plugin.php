@@ -22,7 +22,7 @@ declare(strict_types=1);
 namespace CaarMate\Core;
 
 // Prevent direct access.
-if (! defined('ABSPATH')) {
+if (!defined('ABSPATH')) {
     exit;
 }
 
@@ -31,17 +31,40 @@ define('CAARMATE_VERSION', '0.1.0');
 define('CAARMATE_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('CAARMATE_PLUGIN_URL', plugin_dir_url(__FILE__));
 
+// Load internal classes.
+require_once CAARMATE_PLUGIN_DIR . 'inc/Bootstrap.php';
+require_once CAARMATE_PLUGIN_DIR . 'inc/Roles.php';
+require_once CAARMATE_PLUGIN_DIR . 'inc/PostTypes.php';
+
 /**
  * Bootstrap the plugin.
- *
- * Loads internal classes and initialises core functionality.
  *
  * @return void
  */
 function bootstrap(): void
 {
-    // Future: autoload classes from /inc.
+    $app = new Bootstrap();
+    $app->init();
 }
 
-// Kick off.
 add_action('plugins_loaded', __NAMESPACE__ . '\\bootstrap');
+
+/**
+ * Run on plugin activation.
+ *
+ * Registers roles and flushes rewrite rules so CPT slugs work immediately.
+ *
+ * @return void
+ */
+function activate(): void
+{
+    $roles = new Roles();
+    $roles->register();
+
+    $postTypes = new PostTypes();
+    $postTypes->register();
+
+    flush_rewrite_rules();
+}
+
+register_activation_hook(__FILE__, __NAMESPACE__ . '\\activate');

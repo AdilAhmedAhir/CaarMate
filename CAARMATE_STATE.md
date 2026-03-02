@@ -1,7 +1,7 @@
 # CAARMATE_STATE.md
 
 > **AI Context Document** — Pass this file as context to avoid full-codebase reads.
-> Last updated: 2026-03-03
+> Last updated: 2026-03-03 (Phase 1 — Roles & CPTs registered)
 
 ---
 
@@ -38,15 +38,15 @@
 
 | Role Slug | Display Name | Capabilities |
 |---|---|---|
-| `cm_driver` | Driver | `read`, `edit_cm_rides`, `publish_cm_rides` |
-| `cm_passenger` | Passenger | `read`, `create_cm_bookings` |
+| `cm_driver` | Driver | `read`, `upload_files`, `edit_posts`, `edit_published_posts`, `publish_posts`, `delete_posts`, `delete_published_posts`, `edit_cm_rides`, `publish_cm_rides`, `delete_cm_rides` |
+| `cm_passenger` | Passenger | `read`, `create_cm_bookings`, `read_cm_bookings` |
 
 ### Custom Post Types (CPTs)
 
-| CPT Slug | Singular | Plural | Public | Supports |
-|---|---|---|---|---|
-| `cm_ride` | Ride | Rides | Yes | `title`, `editor`, `author`, `thumbnail` |
-| `cm_booking` | Booking | Bookings | No | `title`, `author` |
+| CPT Slug | Singular | Plural | Public | REST | Supports |
+|---|---|---|---|---|---|
+| `cm_ride` | Ride | Rides | Yes | `/wp-json/wp/v2/rides` | `title`, `author`, `custom-fields` |
+| `cm_booking` | Booking | Bookings | No | `/wp-json/wp/v2/bookings` | `title`, `author`, `custom-fields` |
 
 ### Post Meta — `cm_ride`
 
@@ -91,7 +91,10 @@ CaarMate/
 └── wp-content/
     ├── plugins/caarmate-plugin/
     │   ├── caarmate-plugin.php    (bootstrap, namespace CaarMate\Core)
-    │   ├── inc/                   (classes — Roles, CPT, Meta registrars)
+    │   ├── inc/
+    │   │   ├── Bootstrap.php      (wires subsystems into WP hooks)
+    │   │   ├── Roles.php          (cm_driver, cm_passenger)
+    │   │   └── PostTypes.php      (cm_ride, cm_booking)
     │   └── assets/                (css/, js/)
     └── themes/caarmate-theme/
         ├── style.css              (theme header)
@@ -112,11 +115,12 @@ CaarMate/
 - [x] Scaffold `caarmate-theme` (CaarMate Canvas)
 - [x] Create `.gitignore`
 - [x] Push to GitHub (`AdilAhmedAhir/CaarMate`)
+- [x] Register custom roles (`cm_driver`, `cm_passenger`) — `Roles.php`
+- [x] Register CPTs (`cm_ride`, `cm_booking`) — `PostTypes.php`
+- [x] Create OOP Bootstrap architecture — `Bootstrap.php`
 
 ### 🔲 Pending — Phase 1
 
-- [ ] Register custom roles (`cm_driver`, `cm_passenger`)
-- [ ] Register CPTs (`cm_ride`, `cm_booking`)
 - [ ] Register post meta fields
 - [ ] Add basic FSE templates (index, single-ride, archive-rides)
 
