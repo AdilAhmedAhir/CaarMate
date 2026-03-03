@@ -38,6 +38,7 @@ require_once CAARMATE_PLUGIN_DIR . 'inc/PostTypes.php';
 require_once CAARMATE_PLUGIN_DIR . 'inc/Meta.php';
 require_once CAARMATE_PLUGIN_DIR . 'inc/Shortcodes.php';
 require_once CAARMATE_PLUGIN_DIR . 'inc/BookingEngine.php';
+require_once CAARMATE_PLUGIN_DIR . 'inc/Filter.php';
 
 /**
  * Bootstrap the plugin.
