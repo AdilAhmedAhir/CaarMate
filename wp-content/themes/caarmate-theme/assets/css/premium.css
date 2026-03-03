@@ -265,15 +265,75 @@ button.cm-btn-stark:active,
 }
 
 /* --------------------------------------------------------------------------
-   Card Hover Lift (reusable)
+   Section Utilities
    -------------------------------------------------------------------------- */
-.cm-card-lift {
-    transition: var(--cm-transition);
+.cm-section-pad {
+    padding-top: 100px !important;
+    padding-bottom: 100px !important;
 }
 
-.cm-card-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+.cm-section-heading,
+h2.cm-section-heading,
+.wp-block-heading.cm-section-heading {
+    font-family: var(--cm-font) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.03em !important;
+    color: var(--cm-secondary) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Feature Card — Interactive Grid Item
+   -------------------------------------------------------------------------- */
+.wp-block-group.cm-feature-card,
+div.cm-feature-card {
+    background: #ffffff !important;
+    padding: 40px 32px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(0, 0, 0, 0.04) !important;
+    height: 100%;
+}
+
+.wp-block-group.cm-feature-card:hover,
+div.cm-feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: transparent !important;
+}
+
+/* Icon Badge — Teal Circle */
+.cm-icon-badge {
+    width: 64px;
+    height: 64px;
+    background: #e6fffa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: var(--cm-primary);
+    margin-bottom: 24px;
+}
+
+/* Card Typography */
+.cm-card-title,
+.wp-block-heading.cm-card-title {
+    font-family: var(--cm-font) !important;
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 12px !important;
+    color: var(--cm-secondary) !important;
+    letter-spacing: -0.02em;
+}
+
+.cm-card-text,
+p.cm-card-text {
+    font-family: var(--cm-font) !important;
+    font-size: 1rem !important;
+    color: var(--cm-muted) !important;
+    line-height: 1.65;
+    margin-bottom: 0 !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -301,5 +361,20 @@ button.cm-btn-stark:active,
         margin-left: 0;
         margin-top: 32px;
         padding: 32px 28px !important;
+    }
+
+    .cm-section-pad {
+        padding-top: 64px !important;
+        padding-bottom: 64px !important;
+    }
+
+    .wp-block-group.cm-feature-card,
+    div.cm-feature-card {
+        padding: 32px 24px !important;
+    }
+
+    .cm-section-heading,
+    h2.cm-section-heading {
+        text-align: center !important;
     }
 }

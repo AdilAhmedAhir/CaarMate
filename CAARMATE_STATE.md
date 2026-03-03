@@ -136,6 +136,7 @@ CaarMate/
 - [x] Homepage Featured Rides section assembled — `parts/home/featured.html` (Phase 6)
 - [x] Premium CSS pipeline established — `assets/css/main.css` via `functions.php` enqueue
 - [x] Hero rebuilt to Tier-1 functional UI — search widget, Uber-style layout, stark CSS
+- [x] How It Works upgraded to Tier-1 interactive grid — feature cards, icon badges, hover-lift
 
 ### 🔲 Pending — Phase 2
 
