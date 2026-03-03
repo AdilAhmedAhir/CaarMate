@@ -164,12 +164,14 @@ class Shortcodes
 
         // --- Guest: prompt login ---
         if (!is_user_logged_in()) {
-            $loginUrl = esc_url(wp_login_url(get_permalink($postId)));
+            $loginUrl = esc_url(home_url('/login/'));
 
-            return '<div class="cm-cta-container">'
-                . '<a href="' . $loginUrl . '" class="cm-btn cm-btn-primary">'
-                . esc_html__('Log in to Book', 'caarmate')
+            return '<div class="cm-booking-card">'
+                . '<p>' . esc_html__('Log in to book this ride.', 'caarmate') . '</p>'
+                . '<a href="' . $loginUrl . '" class="cm-sidebar-btn">'
+                . esc_html__('Log In to Book', 'caarmate')
                 . '</a>'
+                . '</div>'
                 . '<p class="cm-cta-hint">'
                 . esc_html__('You need an account to reserve a seat.', 'caarmate')
                 . '</p>'
@@ -276,14 +278,20 @@ class Shortcodes
     {
         // --- Gate: require login ---
         if (!is_user_logged_in()) {
-            $loginUrl = esc_url(wp_login_url(home_url('/dashboard/')));
+            $loginUrl = esc_url(home_url('/login/'));
+            $registerUrl = esc_url(home_url('/register/'));
 
             return '<div class="cm-no-results">'
                 . '<h3>' . esc_html__('Please log in', 'caarmate') . '</h3>'
                 . '<p>' . esc_html__('You need an account to view your dashboard.', 'caarmate') . '</p>'
-                . '<a href="' . $loginUrl . '" class="cm-sidebar-btn" style="display:inline-block;margin-top:20px;padding:14px 32px">'
+                . '<div style="display:flex;gap:16px;justify-content:center;margin-top:20px">'
+                . '<a href="' . $loginUrl . '" class="cm-sidebar-btn" style="display:inline-block;padding:14px 32px">'
                 . esc_html__('Log In', 'caarmate')
                 . '</a>'
+                . '<a href="' . $registerUrl . '" class="cm-btn cm-btn-primary" style="display:inline-block;padding:14px 32px">'
+                . esc_html__('Register', 'caarmate')
+                . '</a>'
+                . '</div>'
                 . '</div>';
         }
 

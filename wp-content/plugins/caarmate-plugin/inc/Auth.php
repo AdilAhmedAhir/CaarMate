@@ -92,7 +92,22 @@ class Auth
                 . '</div>';
         }
 
-        $activeTab = isset($_GET['tab']) && $_GET['tab'] === 'register' ? 'register' : 'login';
+        // Detect active tab: check GET param first, then fall back to current page slug.
+        $activeTab = 'login';
+        if (isset($_GET['tab']) && $_GET['tab'] === 'register') {
+            $activeTab = 'register';
+        } else {
+            // Check current page slug.
+            $currentPost = get_queried_object();
+            if ($currentPost && isset($currentPost->post_name) && $currentPost->post_name === 'register') {
+                $activeTab = 'register';
+            }
+            // Fallback: check the URL path.
+            $uri = trim(wp_parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?: '', '/');
+            if ($uri === 'register') {
+                $activeTab = 'register';
+            }
+        }
         $error = isset($_GET['auth_error']) ? sanitize_text_field(wp_unslash($_GET['auth_error'])) : '';
         $success = isset($_GET['auth_success']) ? true : false;
 
