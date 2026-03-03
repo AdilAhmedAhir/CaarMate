@@ -143,6 +143,7 @@ CaarMate/
 - [x] Ride Board upgraded to Tier-1 Sidebar + Ticket UI — archive page, sticky filter, inherited query
 - [x] User Dashboard logic and template implemented — role-based driver table / passenger tickets
 - [x] Global Navigation (Sticky Header + Rich Footer) implemented via Stateless HTML strategy
+- [x] Single Ride upgraded to Tier-1 Trip Manifest — 2-col grid, route header, detail rows, booking card
 
 ### 🔲 Pending — Phase 2
 

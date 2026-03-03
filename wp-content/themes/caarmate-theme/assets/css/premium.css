@@ -768,6 +768,203 @@ h2.cm-section-heading,
 }
 
 /* --------------------------------------------------------------------------
+   Single Ride — Trip Manifest
+   -------------------------------------------------------------------------- */
+.cm-manifest-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* Route Header */
+.cm-route-header {
+    margin-bottom: 40px;
+}
+
+.cm-route-large {
+    font-family: var(--cm-font);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--cm-secondary);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px 0;
+}
+
+.cm-route-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--cm-muted);
+    font-family: var(--cm-font);
+    font-size: 1rem;
+    flex-wrap: wrap;
+}
+
+.cm-meta-pill {
+    background: #edf2f7;
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-family: var(--cm-font);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #4a5568;
+}
+
+/* Driver Card */
+.cm-driver-card {
+    background: #ffffff;
+    border: 1px solid var(--cm-border);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.cm-driver-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cm-primary), #38b2ac);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 1.4rem;
+    font-family: var(--cm-font);
+    flex-shrink: 0;
+}
+
+.cm-driver-name {
+    font-family: var(--cm-font);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--cm-secondary);
+}
+
+.cm-driver-label {
+    font-family: var(--cm-font);
+    font-size: 0.85rem;
+    color: var(--cm-muted);
+    margin-top: 2px;
+}
+
+/* Detail Rows */
+.cm-detail-section {
+    margin-bottom: 32px;
+}
+
+.cm-detail-title {
+    font-family: var(--cm-font);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--cm-muted);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--cm-border);
+}
+
+.cm-detail-row {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.cm-detail-icon {
+    width: 40px;
+    height: 40px;
+    background: #edf2f7;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+.cm-detail-label {
+    font-family: var(--cm-font);
+    font-size: 0.85rem;
+    color: var(--cm-muted);
+    flex: 1;
+}
+
+.cm-detail-value {
+    font-family: var(--cm-font);
+    font-weight: 600;
+    color: var(--cm-secondary);
+    font-size: 1rem;
+    text-align: right;
+}
+
+/* Booking Sidebar */
+.cm-booking-card {
+    position: sticky;
+    top: 100px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    padding: 32px;
+    height: fit-content;
+}
+
+.cm-booking-price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 24px;
+}
+
+.cm-booking-price {
+    font-family: var(--cm-font);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--cm-secondary);
+}
+
+.cm-booking-unit {
+    font-family: var(--cm-font);
+    font-size: 0.9rem;
+    color: var(--cm-muted);
+    font-weight: 400;
+}
+
+.cm-booking-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    font-family: var(--cm-font);
+    font-size: 0.95rem;
+}
+
+.cm-booking-detail-label {
+    color: var(--cm-muted);
+}
+
+.cm-booking-detail-value {
+    font-weight: 600;
+    color: var(--cm-secondary);
+}
+
+.cm-booking-divider {
+    border: none;
+    border-top: 2px dashed var(--cm-border);
+    margin: 20px 0;
+}
+
+/* --------------------------------------------------------------------------
    Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 781px) {
@@ -807,5 +1004,19 @@ h2.cm-section-heading,
     .cm-section-heading,
     h2.cm-section-heading {
         text-align: center !important;
+    }
+
+    .cm-manifest-grid {
+        grid-template-columns: 1fr;
+        padding: 32px 16px;
+        gap: 24px;
+    }
+
+    .cm-route-large {
+        font-size: 1.8rem;
+    }
+
+    .cm-booking-card {
+        position: static;
     }
 }

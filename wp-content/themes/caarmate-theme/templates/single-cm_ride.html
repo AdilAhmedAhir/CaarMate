@@ -1,112 +1,125 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
-<!-- wp:group {"layout":{"type":"constrained"}} -->
-<div class="wp-block-group">
+<!-- wp:group {"align":"full","backgroundColor":"background","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull has-background-background-color has-background">
 
-    <!-- wp:columns {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
-    <div class="wp-block-columns">
+    <!-- wp:html -->
+    <div class="cm-manifest-grid">
 
-        <!-- wp:column {"width":"66.66%"} -->
-        <div class="wp-block-column" style="flex-basis:66.66%">
+        <!-- LEFT COLUMN: Trip Details -->
+        <div>
 
-            <!-- wp:post-title {"level":1,"textColor":"secondary"} /-->
-
-            <!-- wp:post-content {"layout":{"type":"constrained"}} /-->
-
-            <!-- wp:group {"style":{"border":{"width":"1px","color":"var:preset|color|primary","radius":"8px"},"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"},"margin":{"top":"var:preset|spacing|40"}}},"backgroundColor":"background"} -->
-            <div class="wp-block-group has-background-background-color has-background">
-
-                <!-- wp:heading {"level":3,"textColor":"primary","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
-                <h3 class="wp-block-heading has-primary-color has-text-color">Trip Details</h3>
-                <!-- /wp:heading -->
-
-                <!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
-                <div class="wp-block-group">
-
-                    <!-- wp:group -->
-                    <div class="wp-block-group">
-                        <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"}},"textColor":"text"} -->
-                        <p class="has-text-color has-text-text-color"><strong>Departure</strong></p>
-                        <!-- /wp:paragraph -->
-                        <!-- wp:shortcode -->
-                        [cm_ride_meta key="departure"]
-                        <!-- /wp:shortcode -->
-                    </div>
-                    <!-- /wp:group -->
-
-                    <!-- wp:group -->
-                    <div class="wp-block-group">
-                        <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"}},"textColor":"text"} -->
-                        <p class="has-text-color has-text-text-color"><strong>Destination</strong></p>
-                        <!-- /wp:paragraph -->
-                        <!-- wp:shortcode -->
-                        [cm_ride_meta key="destination"]
-                        <!-- /wp:shortcode -->
-                    </div>
-                    <!-- /wp:group -->
-
-                    <!-- wp:group -->
-                    <div class="wp-block-group">
-                        <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"}},"textColor":"text"} -->
-                        <p class="has-text-color has-text-text-color"><strong>Date &amp; Time</strong></p>
-                        <!-- /wp:paragraph -->
-                        <!-- wp:shortcode -->
-                        [cm_ride_meta key="datetime"]
-                        <!-- /wp:shortcode -->
-                    </div>
-                    <!-- /wp:group -->
-
-                    <!-- wp:group -->
-                    <div class="wp-block-group">
-                        <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"}},"textColor":"text"} -->
-                        <p class="has-text-color has-text-text-color"><strong>Available Seats</strong></p>
-                        <!-- /wp:paragraph -->
-                        <!-- wp:shortcode -->
-                        [cm_ride_meta key="available_seats"] / [cm_ride_meta key="total_seats"]
-                        <!-- /wp:shortcode -->
-                    </div>
-                    <!-- /wp:group -->
-
+            <!-- Route Header -->
+            <div class="cm-route-header">
+                <h1 class="cm-route-large">
+                    [cm_ride_meta key="departure"] ➝ [cm_ride_meta key="destination"]
+                </h1>
+                <div class="cm-route-meta">
+                    <span class="cm-meta-pill">🗓 [cm_ride_meta key="datetime"]</span>
+                    <span class="cm-meta-pill">💺 [cm_ride_meta key="available_seats"] seats left</span>
                 </div>
-                <!-- /wp:group -->
-
             </div>
-            <!-- /wp:group -->
+
+            <!-- Driver Card -->
+            <div class="cm-driver-card">
+                <div class="cm-driver-avatar">🚗</div>
+                <div>
+                    <div class="cm-driver-name">Posted by Driver</div>
+                    <div class="cm-driver-label">Verified CaarMate member</div>
+                </div>
+            </div>
+
+            <!-- Trip Details Section -->
+            <div class="cm-detail-section">
+                <div class="cm-detail-title">Trip Information</div>
+
+                <div class="cm-detail-row">
+                    <div class="cm-detail-icon">📍</div>
+                    <div class="cm-detail-label">Departure</div>
+                    <div class="cm-detail-value">[cm_ride_meta key="departure"]</div>
+                </div>
+
+                <div class="cm-detail-row">
+                    <div class="cm-detail-icon">🏁</div>
+                    <div class="cm-detail-label">Destination</div>
+                    <div class="cm-detail-value">[cm_ride_meta key="destination"]</div>
+                </div>
+
+                <div class="cm-detail-row">
+                    <div class="cm-detail-icon">🕐</div>
+                    <div class="cm-detail-label">Date & Time</div>
+                    <div class="cm-detail-value">[cm_ride_meta key="datetime"]</div>
+                </div>
+
+                <div class="cm-detail-row">
+                    <div class="cm-detail-icon">💺</div>
+                    <div class="cm-detail-label">Available Seats</div>
+                    <div class="cm-detail-value">[cm_ride_meta key="available_seats"] / [cm_ride_meta key="total_seats"]
+                    </div>
+                </div>
+            </div>
+
+            <!-- Safety Section -->
+            <div class="cm-detail-section">
+                <div class="cm-detail-title">Safety & Trust</div>
+
+                <div class="cm-detail-row">
+                    <div class="cm-detail-icon">✅</div>
+                    <div class="cm-detail-label">Verified Driver</div>
+                    <div class="cm-detail-value">Identity confirmed</div>
+                </div>
+
+                <div class="cm-detail-row">
+                    <div class="cm-detail-icon">🛡️</div>
+                    <div class="cm-detail-label">Ride Insurance</div>
+                    <div class="cm-detail-value">Covered</div>
+                </div>
+
+                <div class="cm-detail-row">
+                    <div class="cm-detail-icon">⭐</div>
+                    <div class="cm-detail-label">Platform Rating</div>
+                    <div class="cm-detail-value">Trusted</div>
+                </div>
+            </div>
 
         </div>
-        <!-- /wp:column -->
 
-        <!-- wp:column {"width":"33.33%"} -->
-        <div class="wp-block-column" style="flex-basis:33.33%">
+        <!-- RIGHT COLUMN: Booking Card -->
+        <div>
+            <div class="cm-booking-card">
 
-            <!-- wp:group {"style":{"position":{"type":"sticky","top":"2rem"},"border":{"width":"2px","color":"var:preset|color|primary","radius":"12px"},"spacing":{"padding":{"top":"var:preset|spacing|40","right":"var:preset|spacing|30","bottom":"var:preset|spacing|40","left":"var:preset|spacing|30"}}},"backgroundColor":"background"} -->
-            <div class="wp-block-group has-background-background-color has-background">
+                <div class="cm-booking-price-row">
+                    <div>
+                        <span class="cm-booking-price">[cm_ride_meta key="price"]</span>
+                        <span class="cm-booking-unit">/ seat</span>
+                    </div>
+                </div>
 
-                <!-- wp:heading {"level":4,"textColor":"text","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|10"}}}} -->
-                <h4 class="wp-block-heading has-text-color has-text-text-color">Price per Seat</h4>
-                <!-- /wp:heading -->
+                <div class="cm-booking-detail">
+                    <span class="cm-booking-detail-label">Route</span>
+                    <span class="cm-booking-detail-value">[cm_ride_meta key="departure"] → [cm_ride_meta
+                        key="destination"]</span>
+                </div>
 
-                <!-- wp:shortcode -->
-                [cm_ride_meta key="price"]
-                <!-- /wp:shortcode -->
+                <div class="cm-booking-detail">
+                    <span class="cm-booking-detail-label">Date</span>
+                    <span class="cm-booking-detail-value">[cm_ride_meta key="datetime"]</span>
+                </div>
 
-                <!-- wp:separator {"backgroundColor":"primary","style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
-                <hr
-                    class="wp-block-separator has-text-color has-primary-color has-alpha-channel-opacity has-primary-background-color has-background" />
-                <!-- /wp:separator -->
+                <div class="cm-booking-detail">
+                    <span class="cm-booking-detail-label">Seats left</span>
+                    <span class="cm-booking-detail-value">[cm_ride_meta key="available_seats"]</span>
+                </div>
 
-                <!-- wp:shortcode -->
+                <hr class="cm-booking-divider">
+
                 [cm_book_cta]
-                <!-- /wp:shortcode -->
 
             </div>
-            <!-- /wp:group -->
-
         </div>
-        <!-- /wp:column -->
 
     </div>
-    <!-- /wp:columns -->
+    <!-- /wp:html -->
 
 </div>
 <!-- /wp:group -->
