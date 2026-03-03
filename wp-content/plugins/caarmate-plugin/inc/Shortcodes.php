@@ -397,7 +397,7 @@ class Shortcodes
         $bookings = get_posts([
             'post_type' => 'cm_booking',
             'numberposts' => -1,
-            'post_status' => 'publish',
+            'post_status' => 'any',
             'meta_key' => '_cm_passenger_id',
             'meta_value' => $user->ID,
         ]);
