@@ -38,5 +38,8 @@ class Bootstrap
 
         $bookingEngine = new BookingEngine();
         $bookingEngine->init();
+
+        $filter = new Filter();
+        $filter->register();
     }
 }
