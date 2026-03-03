@@ -41,5 +41,11 @@ class Bootstrap
 
         $filter = new Filter();
         $filter->register();
+
+        $accessControl = new AccessControl();
+        $accessControl->register();
+
+        $auth = new Auth();
+        $auth->register();
     }
 }

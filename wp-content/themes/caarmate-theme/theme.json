@@ -20,6 +20,13 @@
 			"postTypes": [
 				"page"
 			]
+		},
+		{
+			"name": "page-auth",
+			"title": "Auth (Login / Register)",
+			"postTypes": [
+				"page"
+			]
 		}
 	],
 	"settings": {
