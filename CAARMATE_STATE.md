@@ -137,6 +137,7 @@ CaarMate/
 - [x] Premium CSS pipeline established — `assets/css/main.css` via `functions.php` enqueue
 - [x] Hero rebuilt to Tier-1 functional UI — search widget, Uber-style layout, stark CSS
 - [x] How It Works upgraded to Tier-1 interactive grid — feature cards, icon badges, hover-lift
+- [x] Trust section upgraded to Tier-1 editorial layout — Z-pattern, check list, elevated media
 
 ### 🔲 Pending — Phase 2
 
