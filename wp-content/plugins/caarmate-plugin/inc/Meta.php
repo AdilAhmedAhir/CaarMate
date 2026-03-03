@@ -58,7 +58,8 @@ class Meta
             '_cm_datetime' => ['type' => 'string', 'sanitize' => 'sanitize_text_field'],
             '_cm_total_seats' => ['type' => 'integer', 'sanitize' => 'absint'],
             '_cm_available_seats' => ['type' => 'integer', 'sanitize' => 'absint'],
-            '_cm_price' => ['type' => 'number', 'sanitize' => 'floatval'],
+            '_cm_price' => ['type' => 'number', 'sanitize' => static function ($value) {
+                return floatval($value); }],
         ];
 
         foreach ($fields as $key => $config) {
