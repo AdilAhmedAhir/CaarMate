@@ -56,10 +56,19 @@ class Meta
             '_cm_departure' => ['type' => 'string', 'sanitize' => 'sanitize_text_field'],
             '_cm_destination' => ['type' => 'string', 'sanitize' => 'sanitize_text_field'],
             '_cm_datetime' => ['type' => 'string', 'sanitize' => 'sanitize_text_field'],
-            '_cm_total_seats' => ['type' => 'integer', 'sanitize' => static function ($v) {
-                return absint($v); }],
-            '_cm_available_seats' => ['type' => 'integer', 'sanitize' => static function ($v) {
-                return absint($v); }],
+            '_cm_departure_time' => ['type' => 'string', 'sanitize' => 'sanitize_text_field'],
+            '_cm_total_seats' => [
+                'type' => 'integer',
+                'sanitize' => static function ($v) {
+                    return absint($v);
+                }
+            ],
+            '_cm_available_seats' => [
+                'type' => 'integer',
+                'sanitize' => static function ($v) {
+                    return absint($v);
+                }
+            ],
             '_cm_price' => [
                 'type' => 'number',
                 'sanitize' => static function ($value) {
@@ -149,6 +158,7 @@ class Meta
         $departure = get_post_meta($post->ID, '_cm_departure', true);
         $destination = get_post_meta($post->ID, '_cm_destination', true);
         $datetime = get_post_meta($post->ID, '_cm_datetime', true);
+        $departureTime = get_post_meta($post->ID, '_cm_departure_time', true);
         $totalSeats = get_post_meta($post->ID, '_cm_total_seats', true);
         $availableSeats = get_post_meta($post->ID, '_cm_available_seats', true);
         $price = get_post_meta($post->ID, '_cm_price', true);
@@ -195,10 +205,17 @@ class Meta
             </tr>
             <tr>
                 <th><label for="cm_datetime">
-                        <?php esc_html_e('Date & Time', 'caarmate'); ?>
+                        <?php esc_html_e('Departure Date', 'caarmate'); ?>
                     </label></th>
-                <td><input type="datetime-local" id="cm_datetime" name="_cm_datetime"
-                        value="<?php echo esc_attr((string) $datetime); ?>"></td>
+                <td><input type="date" id="cm_datetime" name="_cm_datetime" value="<?php echo esc_attr((string) $datetime); ?>">
+                </td>
+            </tr>
+            <tr>
+                <th><label for="cm_departure_time">
+                        <?php esc_html_e('Departure Time', 'caarmate'); ?>
+                    </label></th>
+                <td><input type="time" id="cm_departure_time" name="_cm_departure_time"
+                        value="<?php echo esc_attr((string) $departureTime); ?>" placeholder="e.g. 08:00"></td>
             </tr>
             <tr>
                 <th><label for="cm_total_seats">
@@ -361,6 +378,7 @@ class Meta
         $departure = sanitize_text_field(wp_unslash($_POST['_cm_departure'] ?? ''));
         $destination = sanitize_text_field(wp_unslash($_POST['_cm_destination'] ?? ''));
         $datetime = sanitize_text_field(wp_unslash($_POST['_cm_datetime'] ?? ''));
+        $departureTime = sanitize_text_field(wp_unslash($_POST['_cm_departure_time'] ?? ''));
         $totalSeats = absint($_POST['_cm_total_seats'] ?? 0);
         $price = (float) ($_POST['_cm_price'] ?? 0);
 
@@ -385,6 +403,7 @@ class Meta
         update_post_meta($postId, '_cm_departure', $departure);
         update_post_meta($postId, '_cm_destination', $destination);
         update_post_meta($postId, '_cm_datetime', $datetime);
+        update_post_meta($postId, '_cm_departure_time', $departureTime);
         update_post_meta($postId, '_cm_total_seats', $totalSeats);
         update_post_meta($postId, '_cm_available_seats', $availableSeats);
         update_post_meta($postId, '_cm_price', $price);

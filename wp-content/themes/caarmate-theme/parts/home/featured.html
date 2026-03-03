@@ -9,10 +9,11 @@
 
             <!-- wp:column {"verticalAlignment":"bottom"} -->
             <div class="wp-block-column is-vertically-aligned-bottom">
-                <!-- wp:heading {"className":"cm-section-heading cm-animate-fade-up","style":{"typography":{"fontSize":"2.5rem","fontWeight":"800","letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"0"}}}} -->
-                <h2 class="wp-block-heading cm-section-heading cm-animate-fade-up"
+                <!-- wp:html -->
+                <span class="cm-section-badge cm-animate-fade-up">Featured</span>
+                <h2 class="cm-section-heading cm-animate-fade-up"
                     style="font-size:2.5rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:0">Recent Journeys</h2>
-                <!-- /wp:heading -->
+                <!-- /wp:html -->
             </div>
             <!-- /wp:column -->
 
@@ -34,48 +35,9 @@
         </div>
         <!-- /wp:columns -->
 
-        <!-- wp:query {"queryId":1,"query":{"postType":"cm_ride","perPage":3,"order":"desc","orderBy":"date"},"layout":{"type":"default"}} -->
-        <div class="wp-block-query">
-
-            <!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
-
-            <!-- wp:html -->
-            <div class="cm-ticket-card cm-animate-fade-up delay-2">
-                <div class="cm-ticket-body">
-                    <div class="cm-time-badge">[cm_ride_meta key="datetime"]</div>
-
-                    <div class="cm-route-row">
-                        <span class="cm-city-text">[cm_ride_meta key="departure"]</span>
-                        <span class="cm-route-arrow">➝</span>
-                        <span class="cm-city-text">[cm_ride_meta key="destination"]</span>
-                    </div>
-
-                    <div class="cm-seat-info">
-                        <span style="margin-right:6px">💺</span>
-                        [cm_ride_meta key="available_seats"] seats left
-                    </div>
-                </div>
-
-                <div class="cm-ticket-divider"></div>
-
-                <div class="cm-ticket-footer">
-                    <div class="cm-price-tag">[cm_ride_meta key="price"]</div>
-                    <a href="#" class="cm-view-btn">Book</a>
-                </div>
-            </div>
-            <!-- /wp:html -->
-
-            <!-- /wp:post-template -->
-
-            <!-- wp:no-results -->
-            <!-- wp:paragraph {"align":"center","style":{"color":{"text":"#718096"}}} -->
-            <p class="has-text-align-center" style="color:#718096">No rides available yet. Be the first to offer a
-                journey!</p>
-            <!-- /wp:paragraph -->
-            <!-- /wp:no-results -->
-
-        </div>
-        <!-- /wp:query -->
+        <!-- wp:shortcode -->
+        [cm_recent_rides count="3"]
+        <!-- /wp:shortcode -->
 
     </div>
     <!-- /wp:group -->

@@ -21,6 +21,7 @@ class Shortcodes
         'departure' => '_cm_departure',
         'destination' => '_cm_destination',
         'datetime' => '_cm_datetime',
+        'departure_time' => '_cm_departure_time',
         'total_seats' => '_cm_total_seats',
         'available_seats' => '_cm_available_seats',
         'price' => '_cm_price',
@@ -38,6 +39,98 @@ class Shortcodes
         add_shortcode('cm_ride_search_widget', [$this, 'renderSearchWidget']);
         add_shortcode('cm_ride_filter_sidebar', [$this, 'renderFilterSidebar']);
         add_shortcode('cm_dashboard', [$this, 'renderDashboard']);
+        add_shortcode('cm_recent_rides', [$this, 'renderRecentRides']);
+    }
+
+    // -------------------------------------------------------------------------
+    //  [cm_recent_rides count="3"]
+    // -------------------------------------------------------------------------
+
+    /**
+     * Render recent ride ticket cards.
+     *
+     * Server-side rendering is needed because shortcodes don't
+     * execute inside wp:html blocks within wp:post-template.
+     *
+     * @param array|string $atts Shortcode attributes.
+     * @return string HTML ticket cards.
+     */
+    public function renderRecentRides($atts = []): string
+    {
+        $atts = shortcode_atts(['count' => 3], $atts, 'cm_recent_rides');
+        $count = absint($atts['count']);
+
+        $rides = get_posts([
+            'post_type' => 'cm_ride',
+            'posts_per_page' => $count,
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'post_status' => 'publish',
+        ]);
+
+        if (empty($rides)) {
+            return '<p class="has-text-align-center" style="color:#718096">No rides available yet. Be the first to offer a journey!</p>';
+        }
+
+        $html = '<div class="cm-recent-rides-grid">';
+
+        foreach ($rides as $ride) {
+            $dep = esc_html(get_post_meta($ride->ID, '_cm_departure', true) ?: '—');
+            $dest = esc_html(get_post_meta($ride->ID, '_cm_destination', true) ?: '—');
+            $datetime = get_post_meta($ride->ID, '_cm_datetime', true);
+            $depTime = get_post_meta($ride->ID, '_cm_departure_time', true);
+            $seats = absint(get_post_meta($ride->ID, '_cm_available_seats', true));
+            $price = (float) get_post_meta($ride->ID, '_cm_price', true);
+            $permalink = esc_url(get_permalink($ride->ID));
+
+            // Format date
+            $dateDisplay = '—';
+            if ($datetime) {
+                $ts = strtotime($datetime);
+                if ($ts) {
+                    $dateDisplay = esc_html(date_i18n('M j, Y', $ts));
+                }
+            }
+
+            // Format time
+            $timeDisplay = '';
+            if ($depTime) {
+                $ts = strtotime($depTime);
+                if ($ts) {
+                    $timeDisplay = esc_html(date('g:i A', $ts));
+                }
+            }
+
+            // Format price
+            $priceDisplay = '৳' . number_format($price, 0);
+
+            $timeBadge = '📅 ' . $dateDisplay;
+            if ($timeDisplay) {
+                $timeBadge .= ' &nbsp; 🕐 ' . $timeDisplay;
+            }
+
+            $html .= '<div class="cm-ticket-card cm-animate-fade-up delay-2">'
+                . '<div class="cm-ticket-body">'
+                . '<div class="cm-time-badge">' . $timeBadge . '</div>'
+                . '<div class="cm-route-row">'
+                . '<span class="cm-city-text">' . $dep . '</span>'
+                . '<span class="cm-route-arrow">➝</span>'
+                . '<span class="cm-city-text">' . $dest . '</span>'
+                . '</div>'
+                . '<div class="cm-seat-info"><span style="margin-right:6px">💺</span>' . $seats . ' seats left</div>'
+                . '</div>'
+                . '<div class="cm-ticket-divider"></div>'
+                . '<div class="cm-ticket-footer">'
+                . '<div class="cm-price-tag">' . esc_html($priceDisplay) . '</div>'
+                . '<a href="' . $permalink . '" class="cm-view-btn">View Ride</a>'
+                . '</div>'
+                . '</div>';
+        }
+
+        $html .= '</div>';
+        wp_reset_postdata();
+
+        return $html;
     }
 
     // -------------------------------------------------------------------------
@@ -121,7 +214,7 @@ class Shortcodes
     {
         switch ($key) {
             case 'price':
-                $formatted = '$' . number_format((float) $value, 2);
+                $formatted = '৳' . number_format((float) $value, 0);
                 return esc_html($formatted);
 
             case 'datetime':
@@ -129,7 +222,15 @@ class Shortcodes
                 if ($timestamp === false) {
                     return esc_html((string) $value);
                 }
-                return esc_html(date_i18n('F j, Y \a\t g:i A', $timestamp));
+                return esc_html(date_i18n('M j, Y', $timestamp));
+
+            case 'departure_time':
+                // Format HH:MM to 12-hour (e.g. "08:00" → "8:00 AM")
+                $ts = strtotime((string) $value);
+                if ($ts === false) {
+                    return esc_html((string) $value);
+                }
+                return esc_html(date('g:i A', $ts));
 
             case 'total_seats':
             case 'available_seats':
@@ -165,23 +266,25 @@ class Shortcodes
         // --- Guest: prompt login ---
         if (!is_user_logged_in()) {
             $loginUrl = esc_url(home_url('/login/'));
+            $registerUrl = esc_url(home_url('/register/'));
 
-            return '<div class="cm-booking-card">'
-                . '<p>' . esc_html__('Log in to book this ride.', 'caarmate') . '</p>'
-                . '<a href="' . $loginUrl . '" class="cm-sidebar-btn">'
+            return '<div class="cm-cta-container cm-cta-guest">'
+                . '<div class="cm-cta-icon">🔐</div>'
+                . '<p class="cm-cta-heading">' . esc_html__('Want this seat?', 'caarmate') . '</p>'
+                . '<p class="cm-cta-sub">' . esc_html__('Log in or create an account to book.', 'caarmate') . '</p>'
+                . '<a href="' . $loginUrl . '" class="cm-btn cm-btn-book">'
                 . esc_html__('Log In to Book', 'caarmate')
                 . '</a>'
-                . '</div>'
-                . '<p class="cm-cta-hint">'
-                . esc_html__('You need an account to reserve a seat.', 'caarmate')
-                . '</p>'
+                . '<a href="' . $registerUrl . '" class="cm-btn-register-link">'
+                . esc_html__('New here? Create account →', 'caarmate')
+                . '</a>'
                 . '</div>';
         }
 
         // --- Driver: cannot book own ride ---
         $post = get_post($postId);
         if ($post && (int) $post->post_author === get_current_user_id()) {
-            return '<div class="cm-cta-container">'
+            return '<div class="cm-cta-container cm-cta-driver">'
                 . '<p class="cm-cta-notice">'
                 . esc_html__('This is your ride. You cannot book your own trip.', 'caarmate')
                 . '</p>'
@@ -197,8 +300,8 @@ class Shortcodes
             . '<form method="post" action="' . $actionUrl . '" class="cm-booking-form">'
             . $nonceField
             . '<input type="hidden" name="cm_ride_id" value="' . esc_attr((string) $rideId) . '">'
-            . '<button type="submit" class="cm-btn cm-btn-primary">'
-            . esc_html__('Book Seat', 'caarmate')
+            . '<button type="submit" class="cm-btn cm-btn-book">'
+            . '🎫 ' . esc_html__('Book This Seat', 'caarmate')
             . '</button>'
             . '</form>'
             . '</div>';

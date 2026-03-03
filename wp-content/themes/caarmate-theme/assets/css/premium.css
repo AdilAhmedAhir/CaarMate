@@ -1307,3 +1307,299 @@ h2.cm-section-heading,
     font-weight: 700 !important;
     color: #2c7a7b !important;
 }
+
+/* =========================================================================
+   Booking CTA — Prominent Full-Width Button
+   ========================================================================= */
+
+.cm-cta-container {
+    text-align: center;
+    padding: 24px;
+    border-radius: 16px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.cm-cta-guest {
+    background: linear-gradient(135deg, #f0fdfa 0%, #e6fffa 100%);
+    border: 1px solid #b2dfdb;
+}
+
+.cm-cta-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+.cm-cta-heading {
+    font-family: var(--cm-font);
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1a202c;
+    margin: 0 0 8px 0;
+}
+
+.cm-cta-sub {
+    font-family: var(--cm-font);
+    font-size: 1rem;
+    color: #718096;
+    margin: 0 0 20px 0;
+}
+
+.cm-btn-book {
+    display: block;
+    width: 100%;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #2c7a7b 0%, #38a89d 100%);
+    color: #ffffff !important;
+    font-family: var(--cm-font);
+    font-size: 1.15rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 16px rgba(44, 122, 123, 0.3);
+    letter-spacing: 0.01em;
+}
+
+.cm-btn-book:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(44, 122, 123, 0.4);
+    background: linear-gradient(135deg, #285e5f 0%, #2c7a7b 100%);
+}
+
+.cm-btn-register-link {
+    display: block;
+    margin-top: 14px;
+    font-family: var(--cm-font);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #2c7a7b;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.cm-btn-register-link:hover {
+    color: #285e5f;
+    text-decoration: underline;
+}
+
+.cm-cta-notice {
+    font-family: var(--cm-font);
+    font-size: 1rem;
+    color: #718096;
+    margin: 0;
+    padding: 8px 0;
+}
+
+/* =========================================================================
+   Section Badge — Small Pill Above Heading
+   ========================================================================= */
+
+.cm-section-badge {
+    display: inline-block;
+    background: #e6fffa;
+    color: #2c7a7b;
+    font-family: var(--cm-font);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+}
+
+.cm-how-header {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.cm-section-sub {
+    font-family: var(--cm-font);
+    font-size: 1.1rem;
+    color: #718096;
+    margin: 12px 0 0 0;
+    line-height: 1.6;
+}
+
+/* =========================================================================
+   Step Numbers — Large Faded Numbers
+   ========================================================================= */
+
+.cm-step-number {
+    font-family: var(--cm-font);
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(44, 122, 123, 0.1);
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -0.05em;
+}
+
+.cm-feature-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(44, 122, 123, 0.06);
+}
+
+.cm-feature-card:hover {
+    border-color: rgba(44, 122, 123, 0.15);
+    background: #ffffff;
+}
+
+/* =========================================================================
+   Trust Section — Premium Dark Gradient
+   ========================================================================= */
+
+.cm-trust-section {
+    background: linear-gradient(180deg, #f7fffe 0%, #edf8f7 50%, #f7fffe 100%) !important;
+}
+
+.cm-trust-img-wrapper {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+}
+
+.cm-trust-img-wrapper .cm-trust-img {
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.cm-trust-badge {
+    display: inline-block;
+    background: rgba(44, 122, 123, 0.08);
+    color: #2c7a7b;
+    font-family: var(--cm-font);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+}
+
+.cm-trust-heading {
+    font-family: var(--cm-font);
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #1a202c;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.03em;
+}
+
+.cm-trust-text {
+    font-family: var(--cm-font);
+    font-size: 1.05rem;
+    color: #718096;
+    line-height: 1.7;
+    margin: 0 0 28px 0;
+}
+
+.cm-check-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cm-check-item {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(44, 122, 123, 0.08);
+    transition: all 0.2s;
+}
+
+.cm-check-item:hover {
+    background: #ffffff;
+    border-color: rgba(44, 122, 123, 0.15);
+    transform: translateX(4px);
+}
+
+/* =========================================================================
+   Mobile Responsive — Premium Polish
+   ========================================================================= */
+
+@media (max-width: 768px) {
+    .cm-how-header {
+        margin-bottom: 36px;
+    }
+
+    .cm-section-heading,
+    h2.cm-section-heading {
+        font-size: 1.8rem !important;
+    }
+
+    .cm-trust-heading {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    .cm-trust-badge {
+        display: block;
+        text-align: center;
+    }
+
+    .cm-trust-text {
+        text-align: center;
+    }
+
+    .cm-trust-img-wrapper {
+        max-width: 320px;
+        margin: 0 auto 32px auto;
+    }
+
+    .cm-check-list {
+        gap: 8px;
+    }
+
+    .cm-feature-card {
+        text-align: center;
+        align-items: center;
+    }
+
+    .cm-step-number {
+        font-size: 2.5rem;
+    }
+
+    .cm-ticket-card {
+        max-width: 100%;
+    }
+
+    .cm-cta-heading {
+        font-size: 1.2rem;
+    }
+
+    .cm-btn-book {
+        padding: 14px 24px;
+        font-size: 1.05rem;
+    }
+
+    .cm-section-badge {
+        font-size: 0.75rem;
+    }
+}
+
+/* =========================================================================
+   Recent Rides Grid — For [cm_recent_rides] shortcode
+   ========================================================================= */
+
+.cm-recent-rides-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+@media (max-width: 768px) {
+    .cm-recent-rides-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
