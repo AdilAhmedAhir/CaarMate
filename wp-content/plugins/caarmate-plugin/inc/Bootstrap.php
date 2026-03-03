@@ -47,5 +47,8 @@ class Bootstrap
 
         $auth = new Auth();
         $auth->register();
+
+        $maps = new Maps();
+        $maps->register();
     }
 }

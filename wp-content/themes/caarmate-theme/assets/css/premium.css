@@ -1209,3 +1209,101 @@ h2.cm-section-heading,
         grid-template-columns: 1fr;
     }
 }
+
+/* =========================================================================
+   Google Maps — Route Map + Autocomplete
+   ========================================================================= */
+
+/* Route Map Container */
+.cm-route-map-wrapper {
+    margin-top: 24px;
+}
+
+.cm-section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 16px;
+}
+
+.cm-route-map {
+    width: 100%;
+    height: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+    .cm-route-map {
+        height: 280px;
+        border-radius: 12px;
+    }
+}
+
+/* Distance / Duration Stats */
+.cm-route-info {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+.cm-route-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #f0fdfa;
+    color: #2c7a7b;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: 1px solid #b2dfdb;
+}
+
+/* Google Places Autocomplete Dropdown */
+.pac-container {
+    border-radius: 12px !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+    font-family: inherit !important;
+    z-index: 10000 !important;
+    margin-top: 4px !important;
+    overflow: hidden !important;
+}
+
+.pac-item {
+    padding: 10px 16px !important;
+    font-size: 0.95rem !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.04) !important;
+    cursor: pointer !important;
+    transition: background 0.15s ease !important;
+}
+
+.pac-item:first-child {
+    border-top: none !important;
+}
+
+.pac-item:hover {
+    background: #f0fdfa !important;
+}
+
+.pac-item-selected {
+    background: #e6fffa !important;
+}
+
+.pac-icon {
+    display: none !important;
+}
+
+.pac-item-query {
+    font-weight: 600 !important;
+    color: #1a202c !important;
+}
+
+.pac-matched {
+    font-weight: 700 !important;
+    color: #2c7a7b !important;
+}

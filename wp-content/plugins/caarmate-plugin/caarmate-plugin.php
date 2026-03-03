@@ -41,6 +41,7 @@ require_once CAARMATE_PLUGIN_DIR . 'inc/BookingEngine.php';
 require_once CAARMATE_PLUGIN_DIR . 'inc/Filter.php';
 require_once CAARMATE_PLUGIN_DIR . 'inc/AccessControl.php';
 require_once CAARMATE_PLUGIN_DIR . 'inc/Auth.php';
+require_once CAARMATE_PLUGIN_DIR . 'inc/Maps.php';
 
 /**
  * Bootstrap the plugin.
