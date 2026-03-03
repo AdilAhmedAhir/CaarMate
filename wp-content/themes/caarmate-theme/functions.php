@@ -32,9 +32,9 @@ function caarmate_canvas_enqueue_styles(): void
 
     wp_enqueue_style(
         'caarmate-canvas-main',
-        get_template_directory_uri() . '/assets/css/main.css',
+        get_template_directory_uri() . '/assets/css/premium.css',
         ['caarmate-canvas-style'],
-        (string) filemtime(get_template_directory() . '/assets/css/main.css')
+        (string) filemtime(get_template_directory() . '/assets/css/premium.css')
     );
 }
 
