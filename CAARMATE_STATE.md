@@ -140,6 +140,7 @@ CaarMate/
 - [x] Trust section upgraded to Tier-1 editorial layout — Z-pattern, check list, elevated media
 - [x] Recent Rides upgraded to Tier-1 ticket stub UI — boarding pass cards, dashed divider, slide-arrow
 - [x] Search Filter Logic (pre_get_posts) implemented — Filter.php, departure/destination/date
+- [x] Ride Board upgraded to Tier-1 Sidebar + Ticket UI — archive page, sticky filter, inherited query
 
 ### 🔲 Pending — Phase 2
 

@@ -507,6 +507,106 @@ h2.cm-section-heading,
 }
 
 /* --------------------------------------------------------------------------
+   Archive Page — Sidebar Layout
+   -------------------------------------------------------------------------- */
+.cm-archive-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.cm-sidebar-sticky {
+    position: sticky;
+    top: 40px;
+    background: #ffffff;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.cm-sidebar-title {
+    font-family: var(--cm-font);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--cm-secondary);
+}
+
+.cm-sidebar-field {
+    margin-bottom: 20px;
+}
+
+.cm-sidebar-label {
+    display: block;
+    font-family: var(--cm-font);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 8px;
+}
+
+.cm-sidebar-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--cm-border);
+    border-radius: 8px;
+    font-family: var(--cm-font);
+    font-size: 1rem;
+    color: var(--cm-secondary);
+    transition: all 0.2s;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+.cm-sidebar-input:focus {
+    border-color: var(--cm-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(44, 122, 123, 0.1);
+}
+
+.cm-sidebar-btn {
+    width: 100%;
+    background: var(--cm-primary);
+    color: #ffffff;
+    font-family: var(--cm-font);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 4px;
+}
+
+.cm-sidebar-btn:hover {
+    background: #236c6d;
+}
+
+/* No Results State */
+.cm-no-results {
+    text-align: center;
+    padding: 60px;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 2px dashed var(--cm-border);
+    font-family: var(--cm-font);
+}
+
+.cm-no-results h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--cm-secondary);
+    margin-bottom: 8px;
+}
+
+.cm-no-results p {
+    color: var(--cm-muted);
+    font-size: 1.05rem;
+}
+
+/* --------------------------------------------------------------------------
    Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 781px) {

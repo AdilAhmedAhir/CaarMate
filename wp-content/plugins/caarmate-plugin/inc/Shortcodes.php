@@ -36,6 +36,7 @@ class Shortcodes
         add_shortcode('cm_ride_meta', [$this, 'renderRideMeta']);
         add_shortcode('cm_book_cta', [$this, 'renderBookCta']);
         add_shortcode('cm_ride_search_widget', [$this, 'renderSearchWidget']);
+        add_shortcode('cm_ride_filter_sidebar', [$this, 'renderFilterSidebar']);
     }
 
     // -------------------------------------------------------------------------
@@ -198,5 +199,61 @@ class Shortcodes
             . '</button>'
             . '</form>'
             . '</div>';
+    }
+
+    // -------------------------------------------------------------------------
+    //  [cm_ride_filter_sidebar]
+    // -------------------------------------------------------------------------
+
+    /**
+     * Render the sidebar filter form for the ride archive page.
+     *
+     * Pre-fills inputs with current GET parameters so users
+     * can see and refine their search.
+     *
+     * @param array|string $atts Shortcode attributes (unused).
+     * @return string Escaped HTML form.
+     */
+    public function renderFilterSidebar($atts = []): string
+    {
+        // phpcs:disable WordPress.Security.NonceVerification.Recommended -- GET search form, no state change.
+        $departure = isset($_GET['departure'])
+            ? sanitize_text_field(wp_unslash($_GET['departure'])) : '';
+        $destination = isset($_GET['destination'])
+            ? sanitize_text_field(wp_unslash($_GET['destination'])) : '';
+        $date = isset($_GET['date'])
+            ? sanitize_text_field(wp_unslash($_GET['date'])) : '';
+        // phpcs:enable
+
+        $actionUrl = esc_url(home_url('/rides/'));
+
+        return '<form method="get" action="' . $actionUrl . '" class="cm-sidebar-form">'
+            . '<div class="cm-sidebar-field">'
+            . '<label class="cm-sidebar-label" for="cm-departure">'
+            . esc_html__('From', 'caarmate') . '</label>'
+            . '<input type="text" id="cm-departure" name="departure"'
+            . ' class="cm-sidebar-input"'
+            . ' placeholder="' . esc_attr__('City or town...', 'caarmate') . '"'
+            . ' value="' . esc_attr($departure) . '">'
+            . '</div>'
+            . '<div class="cm-sidebar-field">'
+            . '<label class="cm-sidebar-label" for="cm-destination">'
+            . esc_html__('To', 'caarmate') . '</label>'
+            . '<input type="text" id="cm-destination" name="destination"'
+            . ' class="cm-sidebar-input"'
+            . ' placeholder="' . esc_attr__('Where to?', 'caarmate') . '"'
+            . ' value="' . esc_attr($destination) . '">'
+            . '</div>'
+            . '<div class="cm-sidebar-field">'
+            . '<label class="cm-sidebar-label" for="cm-date">'
+            . esc_html__('Date', 'caarmate') . '</label>'
+            . '<input type="date" id="cm-date" name="date"'
+            . ' class="cm-sidebar-input"'
+            . ' value="' . esc_attr($date) . '">'
+            . '</div>'
+            . '<button type="submit" class="cm-sidebar-btn">'
+            . esc_html__('Update Search', 'caarmate')
+            . '</button>'
+            . '</form>';
     }
 }
