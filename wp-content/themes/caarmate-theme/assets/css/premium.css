@@ -607,6 +607,94 @@ h2.cm-section-heading,
 }
 
 /* --------------------------------------------------------------------------
+   Dashboard
+   -------------------------------------------------------------------------- */
+.cm-dashboard-header {
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--cm-border);
+    padding-bottom: 20px;
+}
+
+.cm-dash-welcome {
+    font-family: var(--cm-font);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--cm-secondary);
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.cm-dash-role {
+    font-family: var(--cm-font);
+    color: var(--cm-muted);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 4px 0;
+}
+
+/* Data Table — Driver View */
+.cm-dash-table-wrapper {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.cm-dash-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--cm-font);
+}
+
+.cm-dash-table th {
+    background: #f7fafc;
+    text-align: left;
+    padding: 16px 24px;
+    font-size: 0.8rem;
+    color: #4a5568;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.cm-dash-table td {
+    border-top: 1px solid var(--cm-border);
+    padding: 20px 24px;
+    color: var(--cm-secondary);
+    font-size: 0.95rem;
+}
+
+.cm-dash-table tr:hover td {
+    background: #fbfdfd;
+}
+
+/* Badges */
+.cm-status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-family: var(--cm-font);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.cm-status-success {
+    background: #e6fffa;
+    color: #2c7a7b;
+}
+
+.cm-status-pending {
+    background: #fffff0;
+    color: #b7791f;
+}
+
+/* --------------------------------------------------------------------------
    Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 781px) {

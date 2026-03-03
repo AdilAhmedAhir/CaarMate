@@ -141,6 +141,7 @@ CaarMate/
 - [x] Recent Rides upgraded to Tier-1 ticket stub UI — boarding pass cards, dashed divider, slide-arrow
 - [x] Search Filter Logic (pre_get_posts) implemented — Filter.php, departure/destination/date
 - [x] Ride Board upgraded to Tier-1 Sidebar + Ticket UI — archive page, sticky filter, inherited query
+- [x] User Dashboard logic and template implemented — role-based driver table / passenger tickets
 
 ### 🔲 Pending — Phase 2
 
