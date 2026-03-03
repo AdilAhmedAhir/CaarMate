@@ -5,119 +5,47 @@
 
     <!-- wp:html -->
     <div class="cm-manifest-grid">
-
-        <!-- LEFT COLUMN: Trip Details -->
-        <div>
-
-            <!-- Route Header -->
+        <div class="cm-content-col">
             <div class="cm-route-header">
                 <h1 class="cm-route-large">
-                    [cm_ride_meta key="departure"] ➝ [cm_ride_meta key="destination"]
+                    [cm_ride_meta key="departure"] <span style="color:#cbd5e0">➝</span> [cm_ride_meta key="destination"]
                 </h1>
                 <div class="cm-route-meta">
-                    <span class="cm-meta-pill">🗓 [cm_ride_meta key="datetime"]</span>
-                    <span class="cm-meta-pill">💺 [cm_ride_meta key="available_seats"] seats left</span>
+                    <span class="cm-meta-pill">📅 [cm_ride_meta key="datetime"]</span>
+                    <span class="cm-meta-pill">💺 [cm_ride_meta key="total_seats"] Seats Total</span>
                 </div>
             </div>
 
-            <!-- Driver Card -->
             <div class="cm-driver-card">
-                <div class="cm-driver-avatar">🚗</div>
-                <div>
-                    <div class="cm-driver-name">Posted by Driver</div>
-                    <div class="cm-driver-label">Verified CaarMate member</div>
+                <div class="cm-driver-avatar">👤</div>
+                <div class="cm-driver-info">
+                    <h4>Verified Driver</h4>
+                    <span class="cm-driver-verified">✓ Identity Checked</span>
                 </div>
             </div>
 
-            <!-- Trip Details Section -->
-            <div class="cm-detail-section">
-                <div class="cm-detail-title">Trip Information</div>
-
-                <div class="cm-detail-row">
-                    <div class="cm-detail-icon">📍</div>
-                    <div class="cm-detail-label">Departure</div>
-                    <div class="cm-detail-value">[cm_ride_meta key="departure"]</div>
-                </div>
-
-                <div class="cm-detail-row">
-                    <div class="cm-detail-icon">🏁</div>
-                    <div class="cm-detail-label">Destination</div>
-                    <div class="cm-detail-value">[cm_ride_meta key="destination"]</div>
-                </div>
-
-                <div class="cm-detail-row">
-                    <div class="cm-detail-icon">🕐</div>
-                    <div class="cm-detail-label">Date & Time</div>
-                    <div class="cm-detail-value">[cm_ride_meta key="datetime"]</div>
-                </div>
-
-                <div class="cm-detail-row">
-                    <div class="cm-detail-icon">💺</div>
-                    <div class="cm-detail-label">Available Seats</div>
-                    <div class="cm-detail-value">[cm_ride_meta key="available_seats"] / [cm_ride_meta key="total_seats"]
-                    </div>
-                </div>
+            <div class="cm-prose" style="font-size: 1.1rem; line-height: 1.7; color: #4a5568;">
+                <h3>Trip Details</h3>
             </div>
-
-            <!-- Safety Section -->
-            <div class="cm-detail-section">
-                <div class="cm-detail-title">Safety & Trust</div>
-
-                <div class="cm-detail-row">
-                    <div class="cm-detail-icon">✅</div>
-                    <div class="cm-detail-label">Verified Driver</div>
-                    <div class="cm-detail-value">Identity confirmed</div>
-                </div>
-
-                <div class="cm-detail-row">
-                    <div class="cm-detail-icon">🛡️</div>
-                    <div class="cm-detail-label">Ride Insurance</div>
-                    <div class="cm-detail-value">Covered</div>
-                </div>
-
-                <div class="cm-detail-row">
-                    <div class="cm-detail-icon">⭐</div>
-                    <div class="cm-detail-label">Platform Rating</div>
-                    <div class="cm-detail-value">Trusted</div>
-                </div>
-            </div>
-
         </div>
 
-        <!-- RIGHT COLUMN: Booking Card -->
-        <div>
+        <div class="cm-booking-sidebar">
             <div class="cm-booking-card">
+                <div class="cm-booking-price">[cm_ride_meta key="price"]</div>
+                <span class="cm-booking-sub">per seat</span>
 
-                <div class="cm-booking-price-row">
-                    <div>
-                        <span class="cm-booking-price">[cm_ride_meta key="price"]</span>
-                        <span class="cm-booking-unit">/ seat</span>
-                    </div>
+                <div style="margin-bottom: 24px; font-weight: 600; color: #1a202c;">
+                    [cm_ride_meta key="available_seats"] seats remaining
                 </div>
-
-                <div class="cm-booking-detail">
-                    <span class="cm-booking-detail-label">Route</span>
-                    <span class="cm-booking-detail-value">[cm_ride_meta key="departure"] → [cm_ride_meta
-                        key="destination"]</span>
-                </div>
-
-                <div class="cm-booking-detail">
-                    <span class="cm-booking-detail-label">Date</span>
-                    <span class="cm-booking-detail-value">[cm_ride_meta key="datetime"]</span>
-                </div>
-
-                <div class="cm-booking-detail">
-                    <span class="cm-booking-detail-label">Seats left</span>
-                    <span class="cm-booking-detail-value">[cm_ride_meta key="available_seats"]</span>
-                </div>
-
-                <hr class="cm-booking-divider">
 
                 [cm_book_cta]
 
+                <div class="cm-booking-divider"></div>
+                <div style="font-size: 0.85rem; color: #718096; text-align: center;">
+                    🔒 Secure Atomic Booking
+                </div>
             </div>
         </div>
-
     </div>
     <!-- /wp:html -->
 
