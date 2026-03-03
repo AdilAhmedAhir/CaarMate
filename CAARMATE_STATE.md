@@ -138,6 +138,7 @@ CaarMate/
 - [x] Hero rebuilt to Tier-1 functional UI — search widget, Uber-style layout, stark CSS
 - [x] How It Works upgraded to Tier-1 interactive grid — feature cards, icon badges, hover-lift
 - [x] Trust section upgraded to Tier-1 editorial layout — Z-pattern, check list, elevated media
+- [x] Recent Rides upgraded to Tier-1 ticket stub UI — boarding pass cards, dashed divider, slide-arrow
 
 ### 🔲 Pending — Phase 2
 

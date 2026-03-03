@@ -391,6 +391,122 @@ h2.cm-section-heading,
 }
 
 /* --------------------------------------------------------------------------
+   Ticket Stub Card — Boarding Pass UI
+   -------------------------------------------------------------------------- */
+.cm-ticket-card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.cm-ticket-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: rgba(44, 122, 123, 0.3);
+}
+
+/* Ticket Body */
+.cm-ticket-body {
+    padding: 24px;
+    flex-grow: 1;
+}
+
+.cm-time-badge {
+    display: inline-block;
+    background: #edf2f7;
+    color: #4a5568;
+    font-family: var(--cm-font);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+}
+
+.cm-route-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.cm-city-text {
+    font-family: var(--cm-font);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #1a202c;
+}
+
+.cm-route-arrow {
+    color: #cbd5e0;
+    font-size: 1.2rem;
+    margin: 0 12px;
+}
+
+.cm-seat-info {
+    font-family: var(--cm-font);
+    font-size: 0.9rem;
+    color: #718096;
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+}
+
+/* Dashed Divider */
+.cm-ticket-divider {
+    height: 1px;
+    background-image: linear-gradient(to right, #cbd5e0 50%, transparent 50%);
+    background-size: 8px 1px;
+    background-repeat: repeat-x;
+    margin: 0 24px;
+}
+
+/* Ticket Footer */
+.cm-ticket-footer {
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+}
+
+.cm-price-tag {
+    font-family: var(--cm-font);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #2c7a7b;
+    letter-spacing: -0.05em;
+}
+
+.cm-view-btn {
+    font-family: var(--cm-font);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #2c7a7b;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: gap 0.2s;
+}
+
+.cm-view-btn::after {
+    content: '\2192';
+    margin-left: 6px;
+    transition: margin 0.2s;
+}
+
+.cm-ticket-card:hover .cm-view-btn::after {
+    margin-left: 10px;
+}
+
+/* --------------------------------------------------------------------------
    Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 781px) {
