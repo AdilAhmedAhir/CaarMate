@@ -331,8 +331,9 @@ class Meta
      * @param \WP_Post $post   Post object.
      * @return void
      */
-    public function saveRideMeta(int $postId, \WP_Post $post): void
+    public function saveRideMeta($postId, $post): void
     {
+        $postId = (int) $postId;
         // Bail on autosave.
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
             return;
