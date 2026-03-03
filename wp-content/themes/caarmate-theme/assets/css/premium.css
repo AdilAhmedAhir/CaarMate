@@ -284,22 +284,23 @@ h2.cm-section-heading,
 /* --------------------------------------------------------------------------
    Feature Card — Interactive Grid Item
    -------------------------------------------------------------------------- */
-.wp-block-group.cm-feature-card,
-div.cm-feature-card {
-    background: #ffffff !important;
-    padding: 40px 32px !important;
-    border-radius: 16px !important;
+.cm-feature-card {
+    background: #ffffff;
+    padding: 40px 32px;
+    border-radius: 16px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    border: 1px solid rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid rgba(0, 0, 0, 0.04);
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.wp-block-group.cm-feature-card:hover,
-div.cm-feature-card:hover {
+.cm-feature-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    border-color: transparent !important;
+    border-color: transparent;
 }
 
 /* Icon Badge — Teal Circle */
@@ -312,28 +313,25 @@ div.cm-feature-card:hover {
     align-items: center;
     justify-content: center;
     font-size: 28px;
-    color: var(--cm-primary);
     margin-bottom: 24px;
 }
 
 /* Card Typography */
-.cm-card-title,
-.wp-block-heading.cm-card-title {
-    font-family: var(--cm-font) !important;
-    font-size: 1.25rem !important;
-    font-weight: 700 !important;
-    margin-bottom: 12px !important;
-    color: var(--cm-secondary) !important;
-    letter-spacing: -0.02em;
+.cm-card-title {
+    font-family: var(--cm-font);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--cm-secondary);
+    letter-spacing: -0.03em;
 }
 
-.cm-card-text,
-p.cm-card-text {
-    font-family: var(--cm-font) !important;
-    font-size: 1rem !important;
-    color: var(--cm-muted) !important;
-    line-height: 1.65;
-    margin-bottom: 0 !important;
+.cm-card-text {
+    font-family: var(--cm-font);
+    font-size: 1.05rem;
+    color: var(--cm-muted);
+    line-height: 1.6;
+    margin: 0;
 }
 
 /* --------------------------------------------------------------------------
