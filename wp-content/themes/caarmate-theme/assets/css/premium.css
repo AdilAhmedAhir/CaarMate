@@ -695,6 +695,79 @@ h2.cm-section-heading,
 }
 
 /* --------------------------------------------------------------------------
+   Sticky Glass Header
+   -------------------------------------------------------------------------- */
+.cm-sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.cm-nav-link {
+    font-family: var(--cm-font);
+    font-weight: 600;
+    color: #4a5568;
+    text-decoration: none;
+    margin-left: 24px;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.cm-nav-link:hover {
+    color: var(--cm-primary);
+}
+
+.cm-nav-cta {
+    background: var(--cm-primary);
+    color: #ffffff !important;
+    padding: 8px 18px;
+    border-radius: 6px;
+    margin-left: 24px;
+    transition: background 0.2s;
+}
+
+.cm-nav-cta:hover {
+    background: #236c6d;
+    color: #ffffff !important;
+}
+
+/* --------------------------------------------------------------------------
+   3-Column Footer
+   -------------------------------------------------------------------------- */
+.cm-footer-section {
+    background: #1a202c;
+    color: #cbd5e0;
+    padding: 60px 0 40px;
+}
+
+.cm-footer-col h4 {
+    font-family: var(--cm-font);
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.cm-footer-link {
+    display: block;
+    color: #a0aec0;
+    text-decoration: none;
+    margin-bottom: 12px;
+    font-family: var(--cm-font);
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.cm-footer-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
    Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 781px) {
